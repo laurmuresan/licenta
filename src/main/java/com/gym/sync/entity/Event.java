@@ -15,6 +15,7 @@ public class Event implements Serializable{
     private LocalDate date;
     private String details;
     private Location location;
+    private String phone;
     private LocalDateTime startEvent;
     private LocalDateTime endEvent;
 

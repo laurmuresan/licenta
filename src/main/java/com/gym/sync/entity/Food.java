@@ -17,8 +17,5 @@ public class Food implements Serializable {
     private double dietaryFiber;
     private double sugars;
     private double protein;
-    private Vitamin vitamin;
-
-
 
 }
