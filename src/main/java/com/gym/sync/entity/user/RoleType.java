@@ -26,7 +26,7 @@ public enum RoleType {
             return RoleType.ADMIN;
         } else if ("User".equals(name)) {
             return RoleType.USER;
-        }else {
+        } else {
             return null;
         }
     }

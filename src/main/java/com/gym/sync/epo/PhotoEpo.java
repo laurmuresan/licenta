@@ -1,6 +1,7 @@
 package com.gym.sync.epo;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class PhotoEpo implements Serializable {
 
@@ -9,7 +10,7 @@ public class PhotoEpo implements Serializable {
     private long id;
     private String photo;
 
-    private PhotoEpo () {
+    public PhotoEpo() {
     }
 
     public PhotoEpo(long id, String photo) {
@@ -26,28 +27,25 @@ public class PhotoEpo implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        PhotoEpo photoEpo = (PhotoEpo) o;
-
-        if (id != photoEpo.id) return false;
-        return photo != null ? photo.equals(photoEpo.photo) : photoEpo.photo == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (photo != null ? photo.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "PhotoEpo{" +
                 "id=" + id +
                 ", photo='" + photo + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PhotoEpo photoEpo = (PhotoEpo) o;
+        return id == photoEpo.id &&
+                Objects.equals(photo, photoEpo.photo);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, photo);
     }
 }

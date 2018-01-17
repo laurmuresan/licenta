@@ -1,21 +1,21 @@
-package com.gym.sync.entity.utility;
+package com.gym.sync.epo;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Location implements Serializable {
+public class LocationEpo implements Serializable {
 
-    private static final long serialVersionUID = -4955660391712940457L;
+    private static final long serialVersionUID = 1690868917208338492L;
 
     private long id;
     private String address;
     private double longitude;
     private double latitude;
 
-    public Location() {
+    private LocationEpo() {
     }
 
-    public Location(long id, String address, double longitude, double latitude) {
+    public LocationEpo(long id, String address, double longitude, double latitude) {
         this.id = id;
         this.address = address;
         this.longitude = longitude;
@@ -26,37 +26,21 @@ public class Location implements Serializable {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
     public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
     @Override
     public String toString() {
-        return "Location{" +
+        return "LocationEpo{" +
                 "id=" + id +
                 ", address='" + address + '\'' +
                 ", longitude=" + longitude +
@@ -68,11 +52,11 @@ public class Location implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Location location = (Location) o;
-        return id == location.id &&
-                Double.compare(location.longitude, longitude) == 0 &&
-                Double.compare(location.latitude, latitude) == 0 &&
-                Objects.equals(address, location.address);
+        LocationEpo that = (LocationEpo) o;
+        return id == that.id &&
+                Double.compare(that.longitude, longitude) == 0 &&
+                Double.compare(that.latitude, latitude) == 0 &&
+                Objects.equals(address, that.address);
     }
 
     @Override

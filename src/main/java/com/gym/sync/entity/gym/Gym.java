@@ -16,7 +16,7 @@ public class Gym implements Serializable {
     private String website;
     private String details;
     private String phone;
-    private GymType gymtype;
+    private GymType gymType;
     private LocalTime mondayFridayOpen;
     private LocalTime mondayFridayClose;
     private LocalTime saturdayOpen;
@@ -27,7 +27,7 @@ public class Gym implements Serializable {
     public Gym() {
     }
 
-    public Gym(long id, String name, Location location, String website, String details, String phone, GymType gymtype,
+    public Gym(long id, String name, Location location, String website, String details, String phone, GymType gymType,
                LocalTime mondayFridayOpen, LocalTime mondayFridayClose, LocalTime saturdayOpen,
                LocalTime saturdayClose, LocalTime sundayOpen, LocalTime sundayClose) {
         this.id = id;
@@ -36,7 +36,7 @@ public class Gym implements Serializable {
         this.website = website;
         this.details = details;
         this.phone = phone;
-        this.gymtype = gymtype;
+        this.gymType = gymType;
         this.mondayFridayOpen = mondayFridayOpen;
         this.mondayFridayClose = mondayFridayClose;
         this.saturdayOpen = saturdayOpen;
@@ -93,12 +93,12 @@ public class Gym implements Serializable {
         this.phone = phone;
     }
 
-    public GymType getGymtype() {
-        return gymtype;
+    public GymType getGymType() {
+        return gymType;
     }
 
-    public void setGymtype(GymType gymtype) {
-        this.gymtype = gymtype;
+    public void setGymType(GymType gymType) {
+        this.gymType = gymType;
     }
 
     public LocalTime getMondayFridayOpen() {
@@ -158,7 +158,7 @@ public class Gym implements Serializable {
                 ", website='" + website + '\'' +
                 ", details='" + details + '\'' +
                 ", phone='" + phone + '\'' +
-                ", gymtype=" + gymtype +
+                ", gymType=" + gymType +
                 ", mondayFridayOpen=" + mondayFridayOpen +
                 ", mondayFridayClose=" + mondayFridayClose +
                 ", saturdayOpen=" + saturdayOpen +
@@ -179,7 +179,7 @@ public class Gym implements Serializable {
                 Objects.equals(website, gym.website) &&
                 Objects.equals(details, gym.details) &&
                 Objects.equals(phone, gym.phone) &&
-                gymtype == gym.gymtype &&
+                gymType == gym.gymType &&
                 Objects.equals(mondayFridayOpen, gym.mondayFridayOpen) &&
                 Objects.equals(mondayFridayClose, gym.mondayFridayClose) &&
                 Objects.equals(saturdayOpen, gym.saturdayOpen) &&
@@ -191,7 +191,7 @@ public class Gym implements Serializable {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, location, website, details, phone, gymtype, mondayFridayOpen, mondayFridayClose, saturdayOpen, saturdayClose, sundayOpen, sundayClose);
+        return Objects.hash(id, name, location, website, details, phone, gymType, mondayFridayOpen, mondayFridayClose, saturdayOpen, saturdayClose, sundayOpen, sundayClose);
     }
 }
 

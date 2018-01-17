@@ -1,20 +1,20 @@
-package com.gym.sync.entity.food;
+package com.gym.sync.epo;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Vitamin implements Serializable {
+public class VitaminEpo implements Serializable {
 
-    private static final long serialVersionUID = -1317718451030840366L;
+    private static final long serialVersionUID = 1103206029508850164L;
 
     private long id;
     private String name;
     private long percent;
 
-    public Vitamin() {
+    private VitaminEpo() {
     }
 
-    public Vitamin(long id, String name, long percent) {
+    public VitaminEpo(long id, String name, long percent) {
         this.id = id;
         this.name = name;
         this.percent = percent;
@@ -24,29 +24,17 @@ public class Vitamin implements Serializable {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public long getPercent() {
         return percent;
     }
 
-    public void setPercent(long percent) {
-        this.percent = percent;
-    }
-
     @Override
     public String toString() {
-        return "Vitamin{" +
+        return "VitaminEpo{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", percent=" + percent +
@@ -57,10 +45,10 @@ public class Vitamin implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Vitamin vitamin = (Vitamin) o;
-        return id == vitamin.id &&
-                percent == vitamin.percent &&
-                Objects.equals(name, vitamin.name);
+        VitaminEpo that = (VitaminEpo) o;
+        return id == that.id &&
+                percent == that.percent &&
+                Objects.equals(name, that.name);
     }
 
     @Override
