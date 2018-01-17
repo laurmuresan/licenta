@@ -1,15 +1,15 @@
-package com.gym.sync.entity;
+package com.gym.sync.entity.user;
 
 import java.io.Serializable;
 
-public class Role implements Serializable{
+public class Role implements Serializable {
 
     private static final long serialVersionUID = -6479185245407884679L;
 
     private long id;
-    private RoleType  roleType;
+    private RoleType roleType;
 
-    public Role (){
+    public Role() {
 
     }
 

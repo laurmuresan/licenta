@@ -1,6 +1,6 @@
 package com.gym.sync.epo;
 
-import com.gym.sync.entity.Location;
+import com.gym.sync.entity.utility.Location;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 

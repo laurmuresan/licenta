@@ -1,7 +1,7 @@
 package com.gym.sync.epo;
 
-import com.gym.sync.entity.GymType;
-import com.gym.sync.entity.Location;
+import com.gym.sync.entity.gym.GymType;
+import com.gym.sync.entity.utility.Location;
 import org.joda.time.LocalTime;
 
 import java.io.Serializable;

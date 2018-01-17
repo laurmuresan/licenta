@@ -1,4 +1,4 @@
-package com.gym.sync.entity;
+package com.gym.sync.entity.food;
 
 import java.io.Serializable;
 

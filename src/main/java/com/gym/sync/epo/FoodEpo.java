@@ -1,7 +1,7 @@
 package com.gym.sync.epo;
 
-import com.gym.sync.entity.FoodType;
-import com.gym.sync.entity.Vitamin;
+import com.gym.sync.entity.food.FoodType;
+import com.gym.sync.entity.food.Vitamin;
 
 import java.io.Serializable;
 
