@@ -39,7 +39,7 @@ public class FoodEpoMapper{
     public List<FoodEpo> toExternals(Collection<Food> modelList) {
         List<FoodEpo> foodEpoList = new ArrayList<>();
         for (Food food : modelList){
-            foodEpoList.add(toExternal(food,vitaminRepository.findVitaminByFood(food.getId()));
+            foodEpoList.add(toExternal(food,vitaminRepository.findVitaminByFood(food.getId())));
         }
         return foodEpoList;
     }

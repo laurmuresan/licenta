@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-				   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-				   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
 
-
-	<changeSet author="lmuresan" id="20180118-001">
-		<sql>
-			<![CDATA[
+    <changeSet author="lmuresan" id="20180118-001">
+        <sql>
+            <![CDATA[
 ----------------------------------------------------------------------DIET TABLE-----------------------------------------
 					CREATE TABLE "diet"
 			(
 				"diet_id" BIGINT NOT NULL,
 				"name" VARCHAR(100),
 				"calories" BIGINT,
-				"details" VARCHAR(100),
+				"details" VARCHAR(500),
 				"type" VARCHAR(100)
 			)
 			;
@@ -38,34 +37,37 @@
 				CACHE 1
 				;
          ]]>
-		</sql>
-	</changeSet>
+        </sql>
+    </changeSet>
 
-	<changeSet author="lmuresan" id="20180118-002">
-		<sql>
-			<![CDATA[
+    <changeSet author="lmuresan" id="20180118-002">
+        <sql>
+            <![CDATA[
 ----------------------------------------------------------------------EVENT TABLE-----------------------------------------
 					CREATE TABLE "event"
 			(
 				"event_id" BIGINT NOT NULL,
 				"name" VARCHAR(100),
-				"calories" BIGINT,
-				"details" VARCHAR(100),
-				"startEvent" TIMESTAMP [ WITHOUT TIMEZONE ],
+				"date" DATE,
+				"details" VARCHAR(500),
+				"location_id" BIGINT,
+				"phone" VARCHAR(20),
+				"start_event" TIMESTAMP [ WITHOUT TIMEZONE ],
+				"end_event" TIMESTAMP [ WITHOUT TIMEZONE ]
 			)
 			;
 
-			ALTER TABLE "diet"
-			 ADD CONSTRAINT "diet_id"
-				PRIMARY KEY ("diet_id")
+			ALTER TABLE "event"
+			 ADD CONSTRAINT "event_id"
+				PRIMARY KEY ("event_id")
 			;
 
-			CREATE UNIQUE INDEX "xdiet0"
-			    ON "diet" ("diet_id")
+			CREATE UNIQUE INDEX "xevent0"
+			    ON "event" ("event_id")
 			 TABLESPACE pg_default
 			  ;
 
-			  	CREATE SEQUENCE diet_seq
+			  	CREATE SEQUENCE event_seq
 				INCREMENT BY 1
 				START WITH 1
 				MINVALUE 1
@@ -73,7 +75,61 @@
 				CACHE 1
 				;
          ]]>
-		</sql>
-	</changeSet>
+        </sql>
+    </changeSet>
+
+    <changeSet author="lmuresan" id="20180118-003">
+        <sql>
+            <![CDATA[
+----------------------------------------------------------------------LOCATION TABLE-----------------------------------------
+					CREATE TABLE "location"
+			(
+				"location_id" BIGINT NOT NULL,
+				"address" VARCHAR(100),
+				"longitude" DOUBLE PRECISION,
+				"latitude" DOUBLE PRECISION
+			)
+			;
+
+			ALTER TABLE "location"
+			 ADD CONSTRAINT "location_id"
+				PRIMARY KEY ("location_id")
+			;
+
+			CREATE UNIQUE INDEX "xlocation0"
+			    ON "location" ("location_id")
+			 TABLESPACE pg_default
+			  ;
+
+		    ALTER TABLE "event"
+			 ADD CONSTRAINT "fk_location_id"
+				FOREIGN KEY ("location_id") REFERENCES "location" ("location_id")
+			;
+
+			CREATE INDEX "xlocation1"
+			    ON "event" ("location_id")
+			 TABLESPACE pg_default
+			  ;
+
+		    ALTER TABLE "gym"
+			 ADD CONSTRAINT "fk_location_id"
+				FOREIGN KEY ("location_id") REFERENCES "location" ("location_id")
+			;
+
+			CREATE INDEX "xlocation2"
+			    ON "gym" ("location_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  	CREATE SEQUENCE location_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+        </sql>
+    </changeSet>
 
 </databaseChangeLog>
