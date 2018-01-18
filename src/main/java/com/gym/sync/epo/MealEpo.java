@@ -10,14 +10,14 @@ public class MealEpo implements Serializable {
     private static final long serialVersionUID = 47466276649098965L;
 
     private long id;
-    private long calories;
+    private int calories;
     private String mealType;
     private FoodEpoList foodList;
 
     private MealEpo() {
     }
 
-    public MealEpo(long id, long calories, String mealType, FoodEpoList foodList) {
+    public MealEpo(long id, int calories, String mealType, FoodEpoList foodList) {
         this.id = id;
         this.calories = calories;
         this.mealType = mealType;
@@ -28,7 +28,7 @@ public class MealEpo implements Serializable {
         return id;
     }
 
-    public long getCalories() {
+    public int getCalories() {
         return calories;
     }
 

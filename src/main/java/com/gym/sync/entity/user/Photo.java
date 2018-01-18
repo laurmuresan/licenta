@@ -1,7 +1,11 @@
 package com.gym.sync.entity.user;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "photo")
+@SequenceGenerator(name = "photo_seq", sequenceName = "photo_seq",allocationSize = 1)
 public class Photo implements Serializable {
 
     private static final long serialVersionUID = -7895278894696727922L;
@@ -17,6 +21,9 @@ public class Photo implements Serializable {
         this.photo = photo;
     }
 
+    @Id
+    @Column(name = "photo_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "photo_seq")
     public long getId() {
         return id;
     }
@@ -25,6 +32,7 @@ public class Photo implements Serializable {
         this.id = id;
     }
 
+    @Column(name = "photo")
     public String getPhoto() {
         return photo;
     }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+				   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
 
-    <changeSet author="lmuresan" id="20180118-001">
-        <sql>
-            <![CDATA[
+	<changeSet author="lmuresan" id="20180118-001">
+		<sql>
+			<![CDATA[
 ----------------------------------------------------------------------DIET TABLE-----------------------------------------
 					CREATE TABLE "diet"
 			(
@@ -37,12 +37,12 @@
 				CACHE 1
 				;
          ]]>
-        </sql>
-    </changeSet>
+		</sql>
+	</changeSet>
 
-    <changeSet author="lmuresan" id="20180118-002">
-        <sql>
-            <![CDATA[
+	<changeSet author="lmuresan" id="20180118-002">
+		<sql>
+			<![CDATA[
 ----------------------------------------------------------------------EVENT TABLE-----------------------------------------
 					CREATE TABLE "event"
 			(
@@ -75,12 +75,12 @@
 				CACHE 1
 				;
          ]]>
-        </sql>
-    </changeSet>
+		</sql>
+	</changeSet>
 
-    <changeSet author="lmuresan" id="20180118-003">
-        <sql>
-            <![CDATA[
+	<changeSet author="lmuresan" id="20180118-003">
+		<sql>
+			<![CDATA[
 ----------------------------------------------------------------------LOCATION TABLE-----------------------------------------
 					CREATE TABLE "location"
 			(
@@ -129,7 +129,7 @@
 				CACHE 1
 				;
          ]]>
-        </sql>
-    </changeSet>
+		</sql>
+	</changeSet>
 
 </databaseChangeLog>

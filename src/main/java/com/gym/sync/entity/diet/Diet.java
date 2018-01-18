@@ -9,14 +9,14 @@ public class Diet implements Serializable {
 
     private long id;
     private String name;
-    private long calories;
+    private int calories;
     private String details;
     private DietType dietType;
 
     public Diet() {
     }
 
-    public Diet(long id, String name, long calories, String details, DietType dietType) {
+    public Diet(long id, String name, int calories, String details, DietType dietType) {
         this.id = id;
         this.name = name;
         this.calories = calories;
@@ -44,7 +44,7 @@ public class Diet implements Serializable {
         return calories;
     }
 
-    public void setCalories(long calories) {
+    public void setCalories(int calories) {
         this.calories = calories;
     }
 

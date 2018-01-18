@@ -12,7 +12,7 @@ public class FoodEpo implements Serializable {
     private long id;
     private String name;
     private String foodType;
-    private long calories;
+    private int calories;
     private double saturatedFat;
     private double transFat;
     private double cholesterol;
@@ -25,7 +25,7 @@ public class FoodEpo implements Serializable {
     private FoodEpo() {
     }
 
-    public FoodEpo(long id, String name, String foodType, long calories, double saturatedFat, double transFat,
+    public FoodEpo(long id, String name, String foodType, int calories, double saturatedFat, double transFat,
                    double cholesterol, double sodium, double dietaryFiber, double sugars,
                    double protein, VitaminEpoList vitaminList) {
         this.id = id;
@@ -54,7 +54,7 @@ public class FoodEpo implements Serializable {
         return foodType;
     }
 
-    public long getCalories() {
+    public int getCalories() {
         return calories;
     }
 

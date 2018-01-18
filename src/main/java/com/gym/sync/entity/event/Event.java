@@ -4,6 +4,9 @@ import com.gym.sync.entity.utility.Location;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -67,6 +70,8 @@ public class Event implements Serializable {
         this.details = details;
     }
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "location_id")
     public Location getLocation() {
         return location;
     }

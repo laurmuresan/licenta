@@ -9,12 +9,12 @@ public class Vitamin implements Serializable {
 
     private long id;
     private String name;
-    private long percent;
+    private int percent;
 
     public Vitamin() {
     }
 
-    public Vitamin(long id, String name, long percent) {
+    public Vitamin(long id, String name, int percent) {
         this.id = id;
         this.name = name;
         this.percent = percent;
@@ -36,11 +36,11 @@ public class Vitamin implements Serializable {
         this.name = name;
     }
 
-    public long getPercent() {
+    public int getPercent() {
         return percent;
     }
 
-    public void setPercent(long percent) {
+    public void setPercent(int percent) {
         this.percent = percent;
     }
 

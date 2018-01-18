@@ -12,7 +12,7 @@ public class DietEpo implements Serializable {
 
     private long id;
     private String name;
-    private long calories;
+    private int calories;
     private String details;
     private String dietType;
     private MealEpoList mealList;
@@ -20,7 +20,7 @@ public class DietEpo implements Serializable {
     private DietEpo() {
     }
 
-    public DietEpo(long id, String name, long calories, String details, String dietType, MealEpoList mealList) {
+    public DietEpo(long id, String name, int calories, String details, String dietType, MealEpoList mealList) {
         this.id = id;
         this.name = name;
         this.calories = calories;
@@ -37,7 +37,7 @@ public class DietEpo implements Serializable {
         return name;
     }
 
-    public long getCalories() {
+    public int getCalories() {
         return calories;
     }
 
