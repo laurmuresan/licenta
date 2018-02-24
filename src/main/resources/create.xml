@@ -396,4 +396,39 @@
 	</changeSet>
 
 
+	<changeSet author="lmuresan" id="20180118-010">
+		<sql>
+			<![CDATA[
+----------------------------------------------------------------------DAILY-REPORT TABLE-----------------------------------------
+					CREATE TABLE "user"
+			(
+				"dailyreport_id" BIGINT NOT NULL,
+				"date" DATE,
+				"height" DOUBLE PRECISION,
+				"weight" DOUBLE PRECISION,
+			)
+			;
+
+			ALTER TABLE "dailyreport"
+			 ADD CONSTRAINT "dailyreport_id"
+				PRIMARY KEY ("dailyreport_id")
+			;
+
+			CREATE UNIQUE INDEX "xdailyreport0"
+			    ON "dailyreport" ("dailyreport_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  	CREATE SEQUENCE user_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+		</sql>
+	</changeSet>
+
+
 </databaseChangeLog>

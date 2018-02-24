@@ -9,12 +9,12 @@ public class VitaminEpo implements Serializable {
 
     private long id;
     private String name;
-    private long percent;
+    private int percent;
 
     private VitaminEpo() {
     }
 
-    public VitaminEpo(long id, String name, long percent) {
+    public VitaminEpo(long id, String name, int percent) {
         this.id = id;
         this.name = name;
         this.percent = percent;
@@ -28,7 +28,7 @@ public class VitaminEpo implements Serializable {
         return name;
     }
 
-    public long getPercent() {
+    public int getPercent() {
         return percent;
     }
 

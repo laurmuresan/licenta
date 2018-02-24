@@ -10,7 +10,7 @@ public class Food implements Serializable {
     private long id;
     private String name;
     private FoodType foodType;
-    private long calories;
+    private int calories;
     private double saturatedFat;
     private double transFat;
     private double cholesterol;
@@ -22,7 +22,7 @@ public class Food implements Serializable {
     public Food() {
     }
 
-    public Food(long id, String name, FoodType foodType, long calories, double saturatedFat, double transFat,
+    public Food(long id, String name, FoodType foodType, int calories, double saturatedFat, double transFat,
                 double cholesterol, double sodium, double dietaryFiber, double sugars, double protein) {
         this.id = id;
         this.name = name;
@@ -61,11 +61,11 @@ public class Food implements Serializable {
         this.foodType = foodType;
     }
 
-    public long getCalories() {
+    public int getCalories() {
         return calories;
     }
 
-    public void setCalories(long calories) {
+    public void setCalories(int calories) {
         this.calories = calories;
     }
 
