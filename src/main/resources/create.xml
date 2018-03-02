@@ -396,26 +396,25 @@
 	</changeSet>
 
 
-	<changeSet author="lmuresan" id="20180118-010">
+	<changeSet author="lmuresan" id="20180118-011">
 		<sql>
 			<![CDATA[
 ----------------------------------------------------------------------DAILY-REPORT TABLE-----------------------------------------
-					CREATE TABLE "user"
+					CREATE TABLE "daily_report"
 			(
-				"dailyreport_id" BIGINT NOT NULL,
+				"daily_report_id" BIGINT NOT NULL,
 				"date" DATE,
-				"height" DOUBLE PRECISION,
 				"weight" DOUBLE PRECISION,
 			)
 			;
 
-			ALTER TABLE "dailyreport"
-			 ADD CONSTRAINT "dailyreport_id"
+			ALTER TABLE "daily_report"
+			 ADD CONSTRAINT "daily_report_id"
 				PRIMARY KEY ("dailyreport_id")
 			;
 
-			CREATE UNIQUE INDEX "xdailyreport0"
-			    ON "dailyreport" ("dailyreport_id")
+			CREATE UNIQUE INDEX "xdaily_report0"
+			    ON "dailyreport" ("daily_report_id")
 			 TABLESPACE pg_default
 			  ;
 

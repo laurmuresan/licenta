@@ -13,7 +13,8 @@ public class DailyReport implements Serializable{
     private long id;
     private LocalDate date;
     private double weight;
-
+    private int calories;
+    // TODO getters setters
     public long getId() {
         return id;
     }

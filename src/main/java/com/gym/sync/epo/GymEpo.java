@@ -12,7 +12,7 @@ public class GymEpo implements Serializable {
 
     private long id;
     private String name;
-    private Location location;
+    private LocationEpo location;
     private String website;
     private String details;
     private String phone;
@@ -27,7 +27,7 @@ public class GymEpo implements Serializable {
     private GymEpo() {
     }
 
-    public GymEpo(long id, String name, Location location, String website, String details, String phone, String gymType,
+    public GymEpo(long id, String name, LocationEpo location, String website, String details, String phone, String gymType,
                   LocalTime mondayFridayOpen, LocalTime mondayFridayClose, LocalTime saturdayOpen,
                   LocalTime saturdayClose, LocalTime sundayOpen, LocalTime sundayClose) {
         this.id = id;
@@ -53,7 +53,7 @@ public class GymEpo implements Serializable {
         return name;
     }
 
-    public Location getLocation() {
+    public LocationEpo getLocation() {
         return location;
     }
 

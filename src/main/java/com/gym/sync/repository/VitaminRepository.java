@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author laurmuersan
+ */
 @Repository
 public interface VitaminRepository extends CrudRepository<Vitamin,Long> {
     @Query(value = "SELECT * FROM vita")
