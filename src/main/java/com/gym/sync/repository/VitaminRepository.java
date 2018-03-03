@@ -12,7 +12,7 @@ import java.util.List;
  * @author laurmuersan
  */
 @Repository
-public interface VitaminRepository extends CrudRepository<Vitamin,Long> {
+public interface VitaminRepository extends CrudRepository<Vitamin, Long> {
     @Query(value = "SELECT * FROM vita")
     List<Vitamin> findVitaminByFood(@Param("fid") long food_id);
 }
