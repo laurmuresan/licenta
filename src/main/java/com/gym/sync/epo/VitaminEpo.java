@@ -1,8 +1,12 @@
 package com.gym.sync.epo;
 
+
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class VitaminEpo implements Serializable {
 
     private static final long serialVersionUID = 1103206029508850164L;

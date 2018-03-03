@@ -5,6 +5,9 @@ import com.gym.sync.epo.list.VitaminEpoList;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class FoodEpo implements Serializable {
 
     private static final long serialVersionUID = -4334579996536335389L;

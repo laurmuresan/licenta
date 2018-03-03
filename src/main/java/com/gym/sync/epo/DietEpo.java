@@ -1,11 +1,13 @@
 package com.gym.sync.epo;
 
-
 import com.gym.sync.epo.list.MealEpoList;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class DietEpo implements Serializable {
 
     private static final long serialVersionUID = 3926618961121289234L;

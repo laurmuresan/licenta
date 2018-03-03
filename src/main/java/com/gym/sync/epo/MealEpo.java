@@ -5,6 +5,9 @@ import com.gym.sync.epo.list.FoodEpoList;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class MealEpo implements Serializable {
 
     private static final long serialVersionUID = 47466276649098965L;

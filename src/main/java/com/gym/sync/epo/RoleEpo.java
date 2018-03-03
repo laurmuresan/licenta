@@ -3,6 +3,9 @@ package com.gym.sync.epo;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class RoleEpo implements Serializable {
 
     private static final long serialVersionUID = -6764947669499528069L;

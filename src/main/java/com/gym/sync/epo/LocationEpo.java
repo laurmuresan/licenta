@@ -3,6 +3,9 @@ package com.gym.sync.epo;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class LocationEpo implements Serializable {
 
     private static final long serialVersionUID = 1690868917208338492L;

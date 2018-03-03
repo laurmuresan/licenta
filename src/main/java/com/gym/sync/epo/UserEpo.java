@@ -6,6 +6,9 @@ import org.joda.time.LocalDate;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class UserEpo implements Serializable {
 
     private static final long serialVersionUID = -3590571318994602803L;
