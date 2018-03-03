@@ -3,6 +3,9 @@ package com.gym.sync.entity.user;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * @author laurmuresan
+ */
 @Entity
 @Table(name = "photo")
 @SequenceGenerator(name = "photo_seq", sequenceName = "photo_seq",allocationSize = 1)

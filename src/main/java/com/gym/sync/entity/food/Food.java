@@ -3,6 +3,9 @@ package com.gym.sync.entity.food;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class Food implements Serializable {
 
     private static final long serialVersionUID = -3318443581493541532L;

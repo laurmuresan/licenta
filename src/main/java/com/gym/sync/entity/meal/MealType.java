@@ -1,5 +1,8 @@
 package com.gym.sync.entity.meal;
 
+/**
+ * @author laurmuresan
+ */
 public enum MealType {
 
     BREAKFAST("BREAKFAST"),

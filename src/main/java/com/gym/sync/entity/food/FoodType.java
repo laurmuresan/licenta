@@ -1,5 +1,8 @@
 package com.gym.sync.entity.food;
 
+/**
+ * @author laurmuresan
+ */
 public enum FoodType {
 
     VEGETABLE("VEGETABLE"),

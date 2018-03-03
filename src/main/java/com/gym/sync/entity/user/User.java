@@ -1,11 +1,13 @@
 package com.gym.sync.entity.user;
 
-
 import org.joda.time.LocalDate;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class User implements Serializable {
 
     private static final long serialVersionUID = -4799064125572011553L;

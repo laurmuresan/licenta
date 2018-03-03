@@ -1,5 +1,8 @@
 package com.gym.sync.entity.diet;
 
+/**
+ * @author laurmuresan
+ */
 public enum DietType {
 
     MAINTENANCE("MAINTENANCE"),

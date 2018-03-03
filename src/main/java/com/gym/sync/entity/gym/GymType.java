@@ -1,5 +1,8 @@
 package com.gym.sync.entity.gym;
 
+/**
+ * @author laurmuresan
+ */
 public enum GymType {
 
     CROSSFIT("CROSSFIT"),

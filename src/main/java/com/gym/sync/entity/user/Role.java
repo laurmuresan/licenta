@@ -2,6 +2,9 @@ package com.gym.sync.entity.user;
 
 import java.io.Serializable;
 
+/**
+ * @author laurmuresan
+ */
 public class Role implements Serializable {
 
     private static final long serialVersionUID = -6479185245407884679L;

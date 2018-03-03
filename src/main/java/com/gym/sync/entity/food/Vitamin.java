@@ -3,6 +3,9 @@ package com.gym.sync.entity.food;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class Vitamin implements Serializable {
 
     private static final long serialVersionUID = -1317718451030840366L;

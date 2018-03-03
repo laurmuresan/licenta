@@ -3,6 +3,9 @@ package com.gym.sync.entity.utility;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class Location implements Serializable {
 
     private static final long serialVersionUID = -4955660391712940457L;

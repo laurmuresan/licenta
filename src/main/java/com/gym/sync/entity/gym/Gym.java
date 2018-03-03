@@ -6,6 +6,9 @@ import org.joda.time.LocalTime;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class Gym implements Serializable {
 
     private static final long serialVersionUID = 7873859243956216412L;

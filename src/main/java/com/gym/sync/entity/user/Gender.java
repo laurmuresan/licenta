@@ -1,5 +1,8 @@
 package com.gym.sync.entity.user;
 
+/**
+ * @author laurmuresan
+ */
 public enum Gender {
 
     MALE("MALE"),

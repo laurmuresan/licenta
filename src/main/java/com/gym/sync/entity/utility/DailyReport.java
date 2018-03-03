@@ -6,6 +6,9 @@ import java.io.Serializable;
 /*
     STILL IN PROGRESS
  */
+/**
+ * @author laurmuresan
+ */
 public class DailyReport implements Serializable{
 
     private static final long serialVersionUID = 3040023761979009702L;

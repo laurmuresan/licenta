@@ -3,7 +3,9 @@ package com.gym.sync.entity.meal;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
-
+/**
+ * @author laurmuresan
+ */
 @Entity
 @Table(name = "meal")
 @SequenceGenerator(name = "meal_seq", sequenceName = "meal_seq",allocationSize = 1)

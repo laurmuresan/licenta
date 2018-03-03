@@ -10,6 +10,9 @@ import javax.persistence.OneToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author laurmuresan
+ */
 public class Event implements Serializable {
 
     private static final long serialVersionUID = 5656903129153453979L;
