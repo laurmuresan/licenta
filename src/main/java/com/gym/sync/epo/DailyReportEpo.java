@@ -1,17 +1,13 @@
-package com.gym.sync.entity.utility;
+package com.gym.sync.epo;
 
 import org.joda.time.LocalDate;
 
 import java.io.Serializable;
-/*
-    STILL IN PROGRESS
- */
+
 /**
  * @author laurmuresan
  */
-public class DailyReport implements Serializable{
-
-    private static final long serialVersionUID = 3040023761979009702L;
+public class DailyReportEpo implements Serializable {
 
     private long id;
     private LocalDate date;
@@ -19,49 +15,38 @@ public class DailyReport implements Serializable{
     private int calories;
     private int messageReport;
 
-    public long getId() {
-        return id;
+
+    public DailyReportEpo(long id, LocalDate date, double weight, int calories, int messageReport) {
+        this.id = id;
+        this.date = date;
+        this.weight = weight;
+        this.calories = calories;
+        this.messageReport = messageReport;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public long getId() {
+        return id;
     }
 
     public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
     public double getWeight() {
         return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
     }
 
     public int getCalories() {
         return calories;
     }
 
-    public void setCalories(int calories) {
-        this.calories = calories;
-    }
-
     public int getMessageReport() {
         return messageReport;
     }
 
-    public void setMessageReport(int messageReport) {
-        this.messageReport = messageReport;
-    }
-
     @Override
     public String toString() {
-        return "DailyReport{" +
+        return "DailyReportEpo{" +
                 "id=" + id +
                 ", date=" + date +
                 ", weight=" + weight +
@@ -75,7 +60,7 @@ public class DailyReport implements Serializable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        DailyReport that = (DailyReport) o;
+        DailyReportEpo that = (DailyReportEpo) o;
 
         if (id != that.id) return false;
         if (Double.compare(that.weight, weight) != 0) return false;
@@ -97,4 +82,3 @@ public class DailyReport implements Serializable{
         return result;
     }
 }
-
