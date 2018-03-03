@@ -5,6 +5,9 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author laurmuresan
+ */
 public abstract class GenericMapper<M, E extends Object> {
 
     public abstract M toInternal(E epo);

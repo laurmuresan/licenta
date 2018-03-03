@@ -3,6 +3,9 @@ package com.gym.sync.mapper;
 import com.gym.sync.entity.utility.Location;
 import com.gym.sync.epo.LocationEpo;
 
+/**
+ * @author laurmuresan
+ */
 public class LocationEpoMapper extends GenericMapper<Location, LocationEpo> {
 
     @Override

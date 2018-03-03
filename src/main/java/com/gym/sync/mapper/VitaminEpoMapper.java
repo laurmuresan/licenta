@@ -3,6 +3,9 @@ package com.gym.sync.mapper;
 import com.gym.sync.entity.food.Vitamin;
 import com.gym.sync.epo.VitaminEpo;
 
+/**
+ * @author laurmuresan
+ */
 public class VitaminEpoMapper extends GenericMapper<Vitamin, VitaminEpo> {
     @Override
     public Vitamin toInternal(VitaminEpo epo) {
