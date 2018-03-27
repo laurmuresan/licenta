@@ -3,12 +3,16 @@ package com.gym.sync.entity.gym;
 import com.gym.sync.entity.utility.Location;
 import org.joda.time.LocalTime;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * @author laurmuresan
  */
+@Entity
+@Table(name = "gym")
+@SequenceGenerator(sequenceName = "gym_seq", allocationSize = 1, name = "GymSeq")
 public class Gym implements Serializable {
 
     private static final long serialVersionUID = 7873859243956216412L;
@@ -48,6 +52,9 @@ public class Gym implements Serializable {
         this.sundayClose = sundayClose;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GymSeq")
+    @Column(name = "gym_id", unique = true, nullable = false)
     public long getId() {
         return id;
     }
@@ -56,6 +63,7 @@ public class Gym implements Serializable {
         this.id = id;
     }
 
+    @Column(name = "name", nullable = false)
     public String getName() {
         return name;
     }
@@ -64,6 +72,7 @@ public class Gym implements Serializable {
         this.name = name;
     }
 
+    @Column(name = "location", nullable = false)
     public Location getLocation() {
         return location;
     }
@@ -72,6 +81,7 @@ public class Gym implements Serializable {
         this.location = location;
     }
 
+    @Column(name = "website", nullable = false)
     public String getWebsite() {
         return website;
     }
@@ -80,6 +90,7 @@ public class Gym implements Serializable {
         this.website = website;
     }
 
+    @Column(name = "details", nullable = false)
     public String getDetails() {
         return details;
     }
@@ -88,6 +99,7 @@ public class Gym implements Serializable {
         this.details = details;
     }
 
+    @Column(name = "phone", nullable = false)
     public String getPhone() {
         return phone;
     }
@@ -96,6 +108,8 @@ public class Gym implements Serializable {
         this.phone = phone;
     }
 
+    @Column(name = "type", nullable = false)
+    @Enumerated(EnumType.STRING)
     public GymType getGymType() {
         return gymType;
     }
@@ -104,6 +118,7 @@ public class Gym implements Serializable {
         this.gymType = gymType;
     }
 
+    @Column(name = "monday_friday_open", nullable = false)
     public LocalTime getMondayFridayOpen() {
         return mondayFridayOpen;
     }
@@ -112,6 +127,7 @@ public class Gym implements Serializable {
         this.mondayFridayOpen = mondayFridayOpen;
     }
 
+    @Column(name = "monday_friday_close", nullable = false)
     public LocalTime getMondayFridayClose() {
         return mondayFridayClose;
     }
@@ -120,6 +136,7 @@ public class Gym implements Serializable {
         this.mondayFridayClose = mondayFridayClose;
     }
 
+    @Column(name = "saturday_open", nullable = false)
     public LocalTime getSaturdayOpen() {
         return saturdayOpen;
     }
@@ -128,6 +145,7 @@ public class Gym implements Serializable {
         this.saturdayOpen = saturdayOpen;
     }
 
+    @Column(name = "saturday_close", nullable = false)
     public LocalTime getSaturdayClose() {
         return saturdayClose;
     }
@@ -136,6 +154,7 @@ public class Gym implements Serializable {
         this.saturdayClose = saturdayClose;
     }
 
+    @Column(name = "sunday_open", nullable = false)
     public LocalTime getSundayOpen() {
         return sundayOpen;
     }
@@ -144,6 +163,7 @@ public class Gym implements Serializable {
         this.sundayOpen = sundayOpen;
     }
 
+    @Column(name = "sunday_close", nullable = false)
     public LocalTime getSundayClose() {
         return sundayClose;
     }

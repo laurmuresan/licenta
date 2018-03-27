@@ -1,11 +1,15 @@
 package com.gym.sync.entity.diet;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * @author laurmuresan
  */
+@Entity
+@Table(name = "diet")
+@SequenceGenerator(sequenceName = "diet_seq", allocationSize = 1, name = "DietSeq")
 public class Diet implements Serializable {
 
     private static final long serialVersionUID = -3303888932946436785L;
@@ -27,6 +31,9 @@ public class Diet implements Serializable {
         this.dietType = dietType;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DietSeq")
+    @Column(name = "diet_id", unique = true, nullable = false)
     public long getId() {
         return id;
     }
@@ -35,6 +42,7 @@ public class Diet implements Serializable {
         this.id = id;
     }
 
+    @Column(name = "name", nullable = false)
     public String getName() {
         return name;
     }
@@ -43,6 +51,7 @@ public class Diet implements Serializable {
         this.name = name;
     }
 
+    @Column(name = "calories", nullable = false)
     public int getCalories() {
         return calories;
     }
@@ -51,6 +60,7 @@ public class Diet implements Serializable {
         this.calories = calories;
     }
 
+    @Column(name = "details", nullable = false)
     public String getDetails() {
         return details;
     }
@@ -59,6 +69,8 @@ public class Diet implements Serializable {
         this.details = details;
     }
 
+    @Column(name = "type")
+    @Enumerated(EnumType.STRING)
     public DietType getDietType() {
         return dietType;
     }

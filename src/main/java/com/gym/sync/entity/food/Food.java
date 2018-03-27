@@ -1,11 +1,15 @@
 package com.gym.sync.entity.food;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * @author laurmuresan
  */
+@Entity
+@Table(name = "food")
+@SequenceGenerator(sequenceName = "food_seq", allocationSize = 1, name = "FoodSeq")
 public class Food implements Serializable {
 
     private static final long serialVersionUID = -3318443581493541532L;
@@ -40,6 +44,9 @@ public class Food implements Serializable {
         this.protein = protein;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FoodSeq")
+    @Column(name = "food_id", unique = true, nullable = false)
     public long getId() {
         return id;
     }
@@ -48,6 +55,7 @@ public class Food implements Serializable {
         this.id = id;
     }
 
+    @Column(name = "name", nullable = false)
     public String getName() {
         return name;
     }
@@ -56,6 +64,8 @@ public class Food implements Serializable {
         this.name = name;
     }
 
+    @Column(name = "type", nullable = false)
+    @Enumerated(EnumType.STRING)
     public FoodType getFoodType() {
         return foodType;
     }
@@ -64,6 +74,7 @@ public class Food implements Serializable {
         this.foodType = foodType;
     }
 
+    @Column(name = "calories", nullable = false)
     public int getCalories() {
         return calories;
     }
@@ -72,6 +83,7 @@ public class Food implements Serializable {
         this.calories = calories;
     }
 
+    @Column(name = "saturated_fat", nullable = false)
     public double getSaturatedFat() {
         return saturatedFat;
     }
@@ -80,6 +92,7 @@ public class Food implements Serializable {
         this.saturatedFat = saturatedFat;
     }
 
+    @Column(name = "trans_fat", nullable = false)
     public double getTransFat() {
         return transFat;
     }
@@ -88,6 +101,7 @@ public class Food implements Serializable {
         this.transFat = transFat;
     }
 
+    @Column(name = "cholesterol", nullable = false)
     public double getCholesterol() {
         return cholesterol;
     }
@@ -96,6 +110,7 @@ public class Food implements Serializable {
         this.cholesterol = cholesterol;
     }
 
+    @Column(name = "sodium", nullable = false)
     public double getSodium() {
         return sodium;
     }
@@ -104,6 +119,7 @@ public class Food implements Serializable {
         this.sodium = sodium;
     }
 
+    @Column(name = "dietary_fiber", nullable = false)
     public double getDietaryFiber() {
         return dietaryFiber;
     }
@@ -112,6 +128,7 @@ public class Food implements Serializable {
         this.dietaryFiber = dietaryFiber;
     }
 
+    @Column(name = "sugars", nullable = false)
     public double getSugars() {
         return sugars;
     }
@@ -120,6 +137,7 @@ public class Food implements Serializable {
         this.sugars = sugars;
     }
 
+    @Column(name = "protein", nullable = false)
     public double getProtein() {
         return protein;
     }

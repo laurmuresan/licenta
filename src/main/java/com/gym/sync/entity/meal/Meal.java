@@ -3,12 +3,13 @@ package com.gym.sync.entity.meal;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+
 /**
  * @author laurmuresan
  */
 @Entity
 @Table(name = "meal")
-@SequenceGenerator(name = "meal_seq", sequenceName = "meal_seq",allocationSize = 1)
+@SequenceGenerator(name = "meal_seq", allocationSize = 1, sequenceName = "MealSeq")
 public class Meal implements Serializable {
 
     private static final long serialVersionUID = 1752981763245024791L;
@@ -28,7 +29,7 @@ public class Meal implements Serializable {
 
     @Id
     @Column(name = "meal_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "meal_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MealSeq")
     public long getId() {
         return id;
     }

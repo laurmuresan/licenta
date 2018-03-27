@@ -4,15 +4,16 @@ import com.gym.sync.entity.utility.Location;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * @author laurmuresan
  */
+@Entity
+@Table(name = "event")
+@SequenceGenerator(sequenceName = "event_seq", allocationSize = 1, name = "EventSeq")
 public class Event implements Serializable {
 
     private static final long serialVersionUID = 5656903129153453979L;
@@ -41,6 +42,9 @@ public class Event implements Serializable {
         this.endEvent = endEvent;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EventSeq")
+    @Column(name = "event_id", unique = true, nullable = false)
     public String getId() {
         return id;
     }
@@ -49,6 +53,7 @@ public class Event implements Serializable {
         this.id = id;
     }
 
+    @Column(name = "name", nullable = false)
     public String getName() {
         return name;
     }
@@ -57,6 +62,7 @@ public class Event implements Serializable {
         this.name = name;
     }
 
+    @Column(name = "date", nullable = false)
     public LocalDate getDate() {
         return date;
     }
@@ -65,6 +71,7 @@ public class Event implements Serializable {
         this.date = date;
     }
 
+    @Column(name = "details", nullable = false)
     public String getDetails() {
         return details;
     }
@@ -83,6 +90,7 @@ public class Event implements Serializable {
         this.location = location;
     }
 
+    @Column(name = "phone", nullable = false)
     public String getPhone() {
         return phone;
     }
@@ -91,6 +99,7 @@ public class Event implements Serializable {
         this.phone = phone;
     }
 
+    @Column(name = "start_event", nullable = false)
     public LocalDateTime getStartEvent() {
         return startEvent;
     }
@@ -99,6 +108,7 @@ public class Event implements Serializable {
         this.startEvent = startEvent;
     }
 
+    @Column(name = "end_event", nullable = false)
     public LocalDateTime getEndEvent() {
         return endEvent;
     }

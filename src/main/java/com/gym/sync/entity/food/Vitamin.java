@@ -1,11 +1,15 @@
 package com.gym.sync.entity.food;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * @author laurmuresan
  */
+@Entity
+@Table(name = "vitamin")
+@SequenceGenerator(sequenceName = "diet_seq", allocationSize = 1, name = "VitaminSeq")
 public class Vitamin implements Serializable {
 
     private static final long serialVersionUID = -1317718451030840366L;
@@ -23,6 +27,9 @@ public class Vitamin implements Serializable {
         this.percent = percent;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "VitaminSeq")
+    @Column(name = "vitamin_id", unique = true, nullable = false)
     public long getId() {
         return id;
     }
@@ -31,6 +38,7 @@ public class Vitamin implements Serializable {
         this.id = id;
     }
 
+    @Column(name = "name", nullable = false)
     public String getName() {
         return name;
     }
@@ -39,6 +47,7 @@ public class Vitamin implements Serializable {
         this.name = name;
     }
 
+    @Column(name = "percent", nullable = false)
     public int getPercent() {
         return percent;
     }
