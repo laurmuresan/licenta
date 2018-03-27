@@ -1,8 +1,7 @@
 package com.gym.sync.epo;
 
-import com.gym.sync.epo.list.MealEpoList;
-
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -17,12 +16,12 @@ public class DietEpo implements Serializable {
     private int calories;
     private String details;
     private String dietType;
-    private MealEpoList mealList;
+    private List<MealEpo> mealList;
 
     private DietEpo() {
     }
 
-    public DietEpo(long id, String name, int calories, String details, String dietType, MealEpoList mealList) {
+    public DietEpo(long id, String name, int calories, String details, String dietType, List<MealEpo> mealList) {
         this.id = id;
         this.name = name;
         this.calories = calories;
@@ -51,7 +50,7 @@ public class DietEpo implements Serializable {
         return dietType;
     }
 
-    public MealEpoList getMealList() {
+    public List<MealEpo> getMealList() {
         return mealList;
     }
 
@@ -82,7 +81,6 @@ public class DietEpo implements Serializable {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, name, calories, details, dietType, mealList);
     }
 }

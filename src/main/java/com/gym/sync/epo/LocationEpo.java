@@ -64,7 +64,6 @@ public class LocationEpo implements Serializable {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, address, longitude, latitude);
     }
 }

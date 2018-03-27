@@ -2,17 +2,12 @@ package com.gym.sync.mapper;
 
 import com.gym.sync.entity.event.Event;
 import com.gym.sync.epo.EventEpo;
-import com.gym.sync.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * @author laurmuresan
  */
-public class EventEpoMapper {
+public class EventEpoMapper extends GenericMapper<Event, EventEpo> {
 
     @Autowired
     private LocationEpoMapper locationEpoMapper;
@@ -23,19 +18,8 @@ public class EventEpoMapper {
     }
 
     public EventEpo toExternal(Event model) {
-        return new EventEpo(model.getId(), model.getName(), model.getDate(), model.getDetails(), locationEpoMapper.toExternal(model.getLocation()), model.getPhone(), model.getStartEvent(), model.getEndEvent());
+        return new EventEpo(model.getId(), model.getName(), model.getDate(), model.getDetails(),
+                locationEpoMapper.toExternal(model.getLocation()), model.getPhone(),
+                model.getStartEvent(), model.getEndEvent());
     }
-
-    public List<Event> toInternals(Collection<EventEpo> epoList) {
-        return null;
-    }
-
-    public List<EventEpo> toExternals(Collection<Event> modelList) {
-        List<EventEpo> eventEpoList = new ArrayList<>();
-        for (Event event : modelList) {
-            eventEpoList.add(toExternal(event));
-        }
-        return eventEpoList;
-    }
-
 }

@@ -43,7 +43,7 @@ public class Diet implements Serializable {
         this.name = name;
     }
 
-    public long getCalories() {
+    public int getCalories() {
         return calories;
     }
 
@@ -92,7 +92,6 @@ public class Diet implements Serializable {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, name, calories, details, dietType);
     }
 }

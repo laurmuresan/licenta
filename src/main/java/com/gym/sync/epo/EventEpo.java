@@ -100,7 +100,6 @@ public class EventEpo implements Serializable {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, name, date, details, location, phone, startEvent, endEvent);
     }
 }

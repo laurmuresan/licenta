@@ -1,6 +1,5 @@
 package com.gym.sync.epo;
 
-import com.gym.sync.entity.utility.Location;
 import org.joda.time.LocalTime;
 
 import java.io.Serializable;
@@ -141,7 +140,6 @@ public class GymEpo implements Serializable {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, name, location, website, details, phone, gymType, mondayFridayOpen, mondayFridayClose,
                 saturdayOpen, saturdayClose, sundayOpen, sundayClose);
     }

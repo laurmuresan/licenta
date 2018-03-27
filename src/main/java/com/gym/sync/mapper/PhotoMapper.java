@@ -7,6 +7,7 @@ import com.gym.sync.epo.PhotoEpo;
  * @author laurmuresan
  */
 public class PhotoMapper extends GenericMapper<Photo, PhotoEpo> {
+
     @Override
     public Photo toInternal(PhotoEpo epo) {
         return new Photo(epo.getId(), epo.getPhoto());

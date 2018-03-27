@@ -1,9 +1,9 @@
 package com.gym.sync.epo;
 
-import com.gym.sync.epo.list.DietEpoList;
 import org.joda.time.LocalDate;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -26,14 +26,14 @@ public class UserEpo implements Serializable {
     private String address;
     private RoleEpo role;
     private PhotoEpo photo;
-    private DietEpoList dietList;
+    private List<DietEpo> dietList;
 
     private UserEpo() {
     }
 
     public UserEpo(long id, String firstName, String lastName, String email, String username, String gender,
                    LocalDate birthDate, double height, double weight, String phoneNumber, String address,
-                   RoleEpo role, PhotoEpo photo, DietEpoList dietList) {
+                   RoleEpo role, PhotoEpo photo, List<DietEpo> dietList) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -102,7 +102,7 @@ public class UserEpo implements Serializable {
         return photo;
     }
 
-    public DietEpoList getDietList() {
+    public List<DietEpo> getDietList() {
         return dietList;
     }
 
@@ -149,7 +149,6 @@ public class UserEpo implements Serializable {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, firstName, lastName, email, username, gender, birthDate, height, weight, phoneNumber,
                 address, role, photo, dietList);
     }

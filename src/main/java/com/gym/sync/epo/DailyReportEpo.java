@@ -15,6 +15,8 @@ public class DailyReportEpo implements Serializable {
     private int calories;
     private int messageReport;
 
+    private DailyReportEpo() {
+    }
 
     public DailyReportEpo(long id, LocalDate date, double weight, int calories, int messageReport) {
         this.id = id;

@@ -13,7 +13,7 @@ public class RoleEpo implements Serializable {
     private long id;
     private String roleType;
 
-    public RoleEpo() {
+    private RoleEpo() {
     }
 
     public RoleEpo(long id, String roleType) {
@@ -48,7 +48,6 @@ public class RoleEpo implements Serializable {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, roleType);
     }
 }

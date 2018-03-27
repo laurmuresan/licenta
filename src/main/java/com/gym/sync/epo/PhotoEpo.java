@@ -13,7 +13,7 @@ public class PhotoEpo implements Serializable {
     private long id;
     private String photo;
 
-    public PhotoEpo() {
+    private PhotoEpo() {
     }
 
     public PhotoEpo(long id, String photo) {
@@ -48,7 +48,6 @@ public class PhotoEpo implements Serializable {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, photo);
     }
 }

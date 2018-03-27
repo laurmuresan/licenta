@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author laurmuresan
@@ -15,14 +16,14 @@ public abstract class GenericMapper<M, E extends Object> {
     public abstract E toExternal(M model);
 
     public List<M> toInternals(Collection<E> epoList) {
-        List<M> modelList = new ArrayList<>();
-        epoList.stream().forEach(E -> modelList.add(toInternal(E)));
-        return modelList;
+        return epoList.stream()
+                .map(this::toInternal)
+                .collect(Collectors.toList());
     }
 
     public List<E> toExternals(Collection<M> modelList) {
-        List<E> epoList = new LinkedList<>();
-        modelList.stream().forEach(M -> epoList.add(toExternal(M)));
-        return epoList;
+        return modelList.stream()
+                .map(this::toExternal)
+                .collect(Collectors.toList());
     }
 }
