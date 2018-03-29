@@ -1,10 +1,14 @@
 package com.gym.sync.entity.user;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * @author laurmuresan
  */
+@Entity
+@Table(name = "role")
+@SequenceGenerator(sequenceName = "role_seq", allocationSize = 1, name = "RoleSeq")
 public class Role implements Serializable {
 
     private static final long serialVersionUID = -6479185245407884679L;
@@ -21,6 +25,9 @@ public class Role implements Serializable {
         this.roleType = roleType;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RoleSeq")
+    @Column(name = "role_id", unique = true, nullable = false)
     public long getId() {
         return id;
     }
@@ -29,6 +36,8 @@ public class Role implements Serializable {
         this.id = id;
     }
 
+    @Column(name = "type")
+    @Enumerated(EnumType.STRING)
     public RoleType getRoleType() {
         return roleType;
     }

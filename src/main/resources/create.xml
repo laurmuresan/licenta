@@ -164,12 +164,13 @@
 				"details" VARCHAR(100),
 				"phone" VARCHAR(100),
 				"type" VARCHAR(100),
-				"monday_friday_open" TIME [ WITHOUT TIMEZONE ]
-				"monday_friday_close" TIME [ WITHOUT TIMEZONE ]
-				"saturday_open" TIME [ WITHOUT TIMEZONE ]
-				"saturday_close" TIME [ WITHOUT TIMEZONE ]
-				"sunday_open" TIME [ WITHOUT TIMEZONE ]
-				"sunday_close" TIME [ WITHOUT TIMEZONE ]
+				"monday_friday_open" TIME [ WITHOUT TIMEZONE ],
+				"monday_friday_close" TIME [ WITHOUT TIMEZONE ],
+				"saturday_open" TIME [ WITHOUT TIMEZONE ],
+				"saturday_close" TIME [ WITHOUT TIMEZONE ],
+				"sunday_open" TIME [ WITHOUT TIMEZONE ],
+				"sunday_close" TIME [ WITHOUT TIMEZONE ],
+				"company" BIGINT
 			)
 			;
 
@@ -311,9 +312,6 @@
 				"address" VARCHAR(100),
 				"role" VARCHAR(15),
 				"photo" TEXT
-
-
-				"type" VARCHAR(100)
 			)
 			;
 
@@ -347,6 +345,8 @@
 				"daily_report_id" BIGINT NOT NULL,
 				"date" DATE,
 				"weight" DOUBLE PRECISION,
+				"calories" INT,
+				"message_report" VARCHAR(300)
 			)
 			;
 
@@ -356,7 +356,7 @@
 			;
 
 			CREATE UNIQUE INDEX "xdaily_report0"
-			    ON "dailyreport" ("daily_report_id")
+			    ON "daily_report" ("daily_report_id")
 			 TABLESPACE pg_default
 			  ;
 
@@ -394,26 +394,6 @@
 			 TABLESPACE pg_default
 			  ;
 
-		    ALTER TABLE "event"
-			 ADD CONSTRAINT "fk_location_id"
-				FOREIGN KEY ("location_id") REFERENCES "location" ("location_id")
-			;
-
-			CREATE INDEX "xlocation1"
-			    ON "event" ("location_id")
-			 TABLESPACE pg_default
-			  ;
-
-		    ALTER TABLE "gym"
-			 ADD CONSTRAINT "fk_location_id"
-				FOREIGN KEY ("location_id") REFERENCES "location" ("location_id")
-			;
-
-			CREATE INDEX "xlocation2"
-			    ON "gym" ("location_id")
-			 TABLESPACE pg_default
-			  ;
-
 			  	CREATE SEQUENCE location_seq
 				INCREMENT BY 1
 				START WITH 1
@@ -421,6 +401,133 @@
 				MAXVALUE 9999999999999999
 				CACHE 1
 				;
+         ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet author="lmuresan" id="20180118-012">
+        <sql>
+            <![CDATA[
+----------------------------------------------------------------------DAILY REPORT USER-----------------------------------------
+					CREATE TABLE "daily_report_user"
+			(
+				"user_id" BIGINT NOT NULL,
+				"daily_report_id" BIGINT NOT NULL
+            )
+			;
+         ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet author="lmuresan" id="20180118-013">
+        <sql>
+            <![CDATA[
+----------------------------------------------------------------------COMPANY TABLE-----------------------------------------
+					CREATE TABLE "company"
+			(
+				"company_id" BIGINT NOT NULL,
+				"name" VARCHAR(50),
+				"location" BIGINT,
+				"phone" VARCHAR(30),
+				"social_media_link" VARCHAR(50),
+				"description" VARCHAR(300)
+			)
+			;
+
+			ALTER TABLE "company"
+			 ADD CONSTRAINT "company_id"
+				PRIMARY KEY ("company_id")
+			;
+
+			CREATE UNIQUE INDEX "xcompany0"
+			    ON "company" ("company_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  	CREATE SEQUENCE company_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet author="lmuresan" id="20180118-013">
+        <sql>
+            <![CDATA[
+----------------------------------------------------------------------GOAL TABLE-----------------------------------------
+					CREATE TABLE "goal"
+			(
+				"goal_id" BIGINT NOT NULL,
+				"weight" DOUBLE PRECISION,
+				"deadline" DATE
+				)
+			;
+
+			ALTER TABLE "goal"
+			 ADD CONSTRAINT "goal_id"
+				PRIMARY KEY ("goal_id")
+			;
+
+			CREATE UNIQUE INDEX "xgoal0"
+			    ON "goal" ("goal_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  	CREATE SEQUENCE goal_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet author="lmuresan" id="20180118-012">
+        <sql>
+            <![CDATA[
+----------------------------------------------------------------------USER GOAL-----------------------------------------
+					CREATE TABLE "user_goal"
+			(
+				"user_id" BIGINT NOT NULL,
+				"goal_id" BIGINT NOT NULL
+			)
+			;
+         ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet author="lmuresan" id="20180118-014">
+        <sql>
+            <![CDATA[
+----------------------------------------------------------------------CONSTRAINS AND FK KEYS-----------------------------------------
+
+    ALTER TABLE "event"
+    ADD CONSTRAINT "fk_location_id"
+    FOREIGN KEY ("location_id") REFERENCES "location" ("location_id")
+    ;
+
+    CREATE INDEX "xlocation1"
+    ON "event" ("location_id")
+    TABLESPACE pg_default
+    ;
+
+    ALTER TABLE "gym"
+    ADD CONSTRAINT "fk_location_id"
+    FOREIGN KEY ("location_id") REFERENCES "location" ("location_id")
+    ;
+
+    CREATE INDEX "xlocation2"
+    ON "gym" ("location_id")
+    TABLESPACE pg_default
+    ;
+
+
          ]]>
         </sql>
     </changeSet>

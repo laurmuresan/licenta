@@ -1,11 +1,15 @@
 package com.gym.sync.entity.utility;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * @author laurmuresan
  */
+@Entity
+@Table(name = "location")
+@SequenceGenerator(sequenceName = "location_seq", allocationSize = 1, name = "LocationSeq")
 public class Location implements Serializable {
 
     private static final long serialVersionUID = -4955660391712940457L;
@@ -25,6 +29,9 @@ public class Location implements Serializable {
         this.latitude = latitude;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "LocationSeq")
+    @Column(name = "location_id", unique = true, nullable = false)
     public long getId() {
         return id;
     }
@@ -33,6 +40,7 @@ public class Location implements Serializable {
         this.id = id;
     }
 
+    @Column(name = "address", nullable = false)
     public String getAddress() {
         return address;
     }
@@ -41,6 +49,7 @@ public class Location implements Serializable {
         this.address = address;
     }
 
+    @Column(name = "longitude", nullable = false)
     public double getLongitude() {
         return longitude;
     }
@@ -49,6 +58,7 @@ public class Location implements Serializable {
         this.longitude = longitude;
     }
 
+    @Column(name = "latitude", nullable = false)
     public double getLatitude() {
         return latitude;
     }

@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "photo")
-@SequenceGenerator(name = "photo_seq", sequenceName = "photo_seq",allocationSize = 1)
+@SequenceGenerator(name = "photo_seq", allocationSize = 1, sequenceName = "PhotoSeq")
 public class Photo implements Serializable {
 
     private static final long serialVersionUID = -7895278894696727922L;
@@ -26,7 +26,7 @@ public class Photo implements Serializable {
 
     @Id
     @Column(name = "photo_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "photo_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PhotoSeq")
     public long getId() {
         return id;
     }

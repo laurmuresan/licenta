@@ -25,13 +25,14 @@ public class GymEpo implements Serializable {
     private LocalTime saturdayClose;
     private LocalTime sundayOpen;
     private LocalTime sundayClose;
+    private CompanyEpo company;
 
     private GymEpo() {
     }
 
     public GymEpo(long id, String name, LocationEpo location, String website, String details, String phone, String gymType,
                   LocalTime mondayFridayOpen, LocalTime mondayFridayClose, LocalTime saturdayOpen,
-                  LocalTime saturdayClose, LocalTime sundayOpen, LocalTime sundayClose) {
+                  LocalTime saturdayClose, LocalTime sundayOpen, LocalTime sundayClose, CompanyEpo company) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -45,6 +46,7 @@ public class GymEpo implements Serializable {
         this.saturdayClose = saturdayClose;
         this.sundayOpen = sundayOpen;
         this.sundayClose = sundayClose;
+        this.company = company;
     }
 
     public long getId() {
@@ -99,6 +101,10 @@ public class GymEpo implements Serializable {
         return sundayClose;
     }
 
+    public CompanyEpo getCompany() {
+        return company;
+    }
+
     @Override
     public String toString() {
         return "GymEpo{" +
@@ -115,6 +121,7 @@ public class GymEpo implements Serializable {
                 ", saturdayClose=" + saturdayClose +
                 ", sundayOpen=" + sundayOpen +
                 ", sundayClose=" + sundayClose +
+                ", company=" + company +
                 '}';
     }
 
@@ -135,12 +142,12 @@ public class GymEpo implements Serializable {
                 Objects.equals(saturdayOpen, gymEpo.saturdayOpen) &&
                 Objects.equals(saturdayClose, gymEpo.saturdayClose) &&
                 Objects.equals(sundayOpen, gymEpo.sundayOpen) &&
-                Objects.equals(sundayClose, gymEpo.sundayClose);
+                Objects.equals(sundayClose, gymEpo.sundayClose) &&
+                Objects.equals(company, gymEpo.company);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, location, website, details, phone, gymType, mondayFridayOpen, mondayFridayClose,
-                saturdayOpen, saturdayClose, sundayOpen, sundayClose);
+        return Objects.hash(id, name, location, website, details, phone, gymType, mondayFridayOpen, mondayFridayClose, saturdayOpen, saturdayClose, sundayOpen, sundayClose, company);
     }
 }

@@ -2,6 +2,7 @@ package com.gym.sync.entity.utility;
 
 import org.joda.time.LocalDate;
 
+import javax.persistence.*;
 import java.io.Serializable;
 /*
     STILL IN PROGRESS
@@ -9,6 +10,9 @@ import java.io.Serializable;
 /**
  * @author laurmuresan
  */
+@Entity
+@Table(name = "daily_report")
+@SequenceGenerator(sequenceName = "daily_report_seq", allocationSize = 1, name = "DailyReportSeq")
 public class DailyReport implements Serializable{
 
     private static final long serialVersionUID = 3040023761979009702L;
@@ -19,6 +23,9 @@ public class DailyReport implements Serializable{
     private int calories;
     private int messageReport;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DailyReportSeq")
+    @Column(name = "daily_report_id", unique = true, nullable = false)
     public long getId() {
         return id;
     }
@@ -27,6 +34,7 @@ public class DailyReport implements Serializable{
         this.id = id;
     }
 
+    @Column(name = "date", nullable = false)
     public LocalDate getDate() {
         return date;
     }
@@ -35,6 +43,7 @@ public class DailyReport implements Serializable{
         this.date = date;
     }
 
+    @Column(name = "weight", nullable = false)
     public double getWeight() {
         return weight;
     }
@@ -43,6 +52,7 @@ public class DailyReport implements Serializable{
         this.weight = weight;
     }
 
+    @Column(name = "calories", nullable = false)
     public int getCalories() {
         return calories;
     }
@@ -51,6 +61,7 @@ public class DailyReport implements Serializable{
         this.calories = calories;
     }
 
+    @Column(name = "message_report", nullable = false)
     public int getMessageReport() {
         return messageReport;
     }

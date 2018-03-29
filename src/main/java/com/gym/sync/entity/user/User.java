@@ -2,12 +2,16 @@ package com.gym.sync.entity.user;
 
 import org.joda.time.LocalDate;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * @author laurmuresan
  */
+@Entity
+@Table(name = "user")
+@SequenceGenerator(sequenceName = "user_seq", allocationSize = 1, name = "UserSeq")
 public class User implements Serializable {
 
     private static final long serialVersionUID = -4799064125572011553L;
@@ -47,6 +51,9 @@ public class User implements Serializable {
         this.photo = photo;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "UserSeq")
+    @Column(name = "user_id", unique = true, nullable = false)
     public long getId() {
         return id;
     }
@@ -55,6 +62,7 @@ public class User implements Serializable {
         this.id = id;
     }
 
+    @Column(name = "first_name", nullable = false)
     public String getFirstName() {
         return firstName;
     }
@@ -63,6 +71,7 @@ public class User implements Serializable {
         this.firstName = firstName;
     }
 
+    @Column(name = "last_name", nullable = false)
     public String getLastName() {
         return lastName;
     }
@@ -71,6 +80,7 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
+    @Column(name = "email", nullable = false)
     public String getEmail() {
         return email;
     }
@@ -79,6 +89,7 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    @Column(name = "username", nullable = false)
     public String getUsername() {
         return username;
     }
@@ -87,6 +98,7 @@ public class User implements Serializable {
         this.username = username;
     }
 
+    @Column(name = "gender", nullable = false)
     public Gender getGender() {
         return gender;
     }
@@ -95,6 +107,7 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
+    @Column(name = "birth_date", nullable = false)
     public LocalDate getBirthDate() {
         return birthDate;
     }
@@ -103,6 +116,7 @@ public class User implements Serializable {
         this.birthDate = birthDate;
     }
 
+    @Column(name = "height", nullable = false)
     public double getHeight() {
         return height;
     }
@@ -111,6 +125,7 @@ public class User implements Serializable {
         this.height = height;
     }
 
+    @Column(name = "weight", nullable = false)
     public double getWeight() {
         return weight;
     }
@@ -119,6 +134,7 @@ public class User implements Serializable {
         this.weight = weight;
     }
 
+    @Column(name = "phone_number", nullable = false)
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -127,6 +143,7 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
+    @Column(name = "address", nullable = false)
     public String getAddress() {
         return address;
     }
@@ -135,6 +152,7 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    @Column(name = "role", nullable = false)
     public Role getRole() {
         return role;
     }
@@ -143,6 +161,7 @@ public class User implements Serializable {
         this.role = role;
     }
 
+    @Column(name = "photo", nullable = false)
     public Photo getPhoto() {
         return photo;
     }

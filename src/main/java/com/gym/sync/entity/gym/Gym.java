@@ -1,5 +1,6 @@
 package com.gym.sync.entity.gym;
 
+import com.gym.sync.entity.company.Company;
 import com.gym.sync.entity.utility.Location;
 import org.joda.time.LocalTime;
 
@@ -30,13 +31,14 @@ public class Gym implements Serializable {
     private LocalTime saturdayClose;
     private LocalTime sundayOpen;
     private LocalTime sundayClose;
+    private Company company;
 
     public Gym() {
     }
 
     public Gym(long id, String name, Location location, String website, String details, String phone, GymType gymType,
                LocalTime mondayFridayOpen, LocalTime mondayFridayClose, LocalTime saturdayOpen,
-               LocalTime saturdayClose, LocalTime sundayOpen, LocalTime sundayClose) {
+               LocalTime saturdayClose, LocalTime sundayOpen, LocalTime sundayClose, Company company) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -50,6 +52,7 @@ public class Gym implements Serializable {
         this.saturdayClose = saturdayClose;
         this.sundayOpen = sundayOpen;
         this.sundayClose = sundayClose;
+        this.company = company;
     }
 
     @Id
@@ -72,7 +75,8 @@ public class Gym implements Serializable {
         this.name = name;
     }
 
-    @Column(name = "location", nullable = false)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "location_id")
     public Location getLocation() {
         return location;
     }
@@ -172,6 +176,16 @@ public class Gym implements Serializable {
         this.sundayClose = sundayClose;
     }
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "company_id")
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
     @Override
     public String toString() {
         return "Gym{" +
@@ -188,6 +202,7 @@ public class Gym implements Serializable {
                 ", saturdayClose=" + saturdayClose +
                 ", sundayOpen=" + sundayOpen +
                 ", sundayClose=" + sundayClose +
+                ", company=" + company +
                 '}';
     }
 
@@ -208,13 +223,13 @@ public class Gym implements Serializable {
                 Objects.equals(saturdayOpen, gym.saturdayOpen) &&
                 Objects.equals(saturdayClose, gym.saturdayClose) &&
                 Objects.equals(sundayOpen, gym.sundayOpen) &&
-                Objects.equals(sundayClose, gym.sundayClose);
+                Objects.equals(sundayClose, gym.sundayClose) &&
+                Objects.equals(company, gym.company);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(id, name, location, website, details, phone, gymType, mondayFridayOpen, mondayFridayClose, saturdayOpen, saturdayClose, sundayOpen, sundayClose);
+        return Objects.hash(id, name, location, website, details, phone, gymType, mondayFridayOpen, mondayFridayClose, saturdayOpen, saturdayClose, sundayOpen, sundayClose, company);
     }
 }
 
