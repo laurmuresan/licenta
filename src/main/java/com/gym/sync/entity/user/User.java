@@ -1,5 +1,6 @@
 package com.gym.sync.entity.user;
 
+import com.gym.sync.entity.utility.Goal;
 import org.joda.time.LocalDate;
 
 import javax.persistence.*;
@@ -29,13 +30,14 @@ public class User implements Serializable {
     private String address;
     private Role role;
     private Photo photo;
+    private Goal goal;
 
     public User() {
     }
 
     public User(long id, String firstName, String lastName, String email, String username, Gender gender,
                 LocalDate birthDate, double height, double weight, String phoneNumber, String address,
-                Role role, Photo photo) {
+                Role role, Photo photo, Goal goal) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -49,6 +51,7 @@ public class User implements Serializable {
         this.address = address;
         this.role = role;
         this.photo = photo;
+        this.goal = goal;
     }
 
     @Id
@@ -170,6 +173,15 @@ public class User implements Serializable {
         this.photo = photo;
     }
 
+    @Column(name = "goal")
+    public Goal getGoal() {
+        return goal;
+    }
+
+    public void setGoal(Goal goal) {
+        this.goal = goal;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -186,6 +198,7 @@ public class User implements Serializable {
                 ", address='" + address + '\'' +
                 ", role=" + role +
                 ", photo=" + photo +
+                ", goal=" + goal +
                 '}';
     }
 
@@ -206,13 +219,12 @@ public class User implements Serializable {
                 Objects.equals(phoneNumber, user.phoneNumber) &&
                 Objects.equals(address, user.address) &&
                 Objects.equals(role, user.role) &&
-                Objects.equals(photo, user.photo);
+                Objects.equals(photo, user.photo) &&
+                Objects.equals(goal, user.goal);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(id, firstName, lastName, email, username, gender, birthDate, height, weight,
-                phoneNumber, address, role, photo);
+        return Objects.hash(id, firstName, lastName, email, username, gender, birthDate, height, weight, phoneNumber, address, role, photo, goal);
     }
 }

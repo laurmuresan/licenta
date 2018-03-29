@@ -311,7 +311,8 @@
 				"phone_number" VARCHAR(15),
 				"address" VARCHAR(100),
 				"role" VARCHAR(15),
-				"photo" TEXT
+				"photo" TEXT,
+				"goal" BIGINT
 			)
 			;
 
@@ -484,20 +485,6 @@
 				MAXVALUE 9999999999999999
 				CACHE 1
 				;
-         ]]>
-        </sql>
-    </changeSet>
-
-    <changeSet author="lmuresan" id="20180118-012">
-        <sql>
-            <![CDATA[
-----------------------------------------------------------------------USER GOAL-----------------------------------------
-					CREATE TABLE "user_goal"
-			(
-				"user_id" BIGINT NOT NULL,
-				"goal_id" BIGINT NOT NULL
-			)
-			;
          ]]>
         </sql>
     </changeSet>

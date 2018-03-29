@@ -27,13 +27,14 @@ public class UserEpo implements Serializable {
     private RoleEpo role;
     private PhotoEpo photo;
     private List<DietEpo> dietList;
+    private GoalEpo goal;
 
     private UserEpo() {
     }
 
     public UserEpo(long id, String firstName, String lastName, String email, String username, String gender,
                    LocalDate birthDate, double height, double weight, String phoneNumber, String address,
-                   RoleEpo role, PhotoEpo photo, List<DietEpo> dietList) {
+                   RoleEpo role, PhotoEpo photo, List<DietEpo> dietList, GoalEpo goal) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -48,6 +49,7 @@ public class UserEpo implements Serializable {
         this.role = role;
         this.photo = photo;
         this.dietList = dietList;
+        this.goal = goal;
     }
 
     public long getId() {
@@ -106,6 +108,10 @@ public class UserEpo implements Serializable {
         return dietList;
     }
 
+    public GoalEpo getGoal() {
+        return goal;
+    }
+
     @Override
     public String toString() {
         return "UserEpo{" +
@@ -123,6 +129,7 @@ public class UserEpo implements Serializable {
                 ", role=" + role +
                 ", photo=" + photo +
                 ", dietList=" + dietList +
+                ", goal=" + goal +
                 '}';
     }
 
@@ -144,12 +151,12 @@ public class UserEpo implements Serializable {
                 Objects.equals(address, userEpo.address) &&
                 Objects.equals(role, userEpo.role) &&
                 Objects.equals(photo, userEpo.photo) &&
-                Objects.equals(dietList, userEpo.dietList);
+                Objects.equals(dietList, userEpo.dietList) &&
+                Objects.equals(goal, userEpo.goal);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email, username, gender, birthDate, height, weight, phoneNumber,
-                address, role, photo, dietList);
+        return Objects.hash(id, firstName, lastName, email, username, gender, birthDate, height, weight, phoneNumber, address, role, photo, dietList, goal);
     }
 }
