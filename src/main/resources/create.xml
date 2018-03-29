@@ -410,7 +410,7 @@
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------DAILY REPORT USER-----------------------------------------
-					CREATE TABLE "daily_report_user"
+					CREATE TABLE "user_daily_report"
 			(
 				"user_id" BIGINT NOT NULL,
 				"daily_report_id" BIGINT NOT NULL
