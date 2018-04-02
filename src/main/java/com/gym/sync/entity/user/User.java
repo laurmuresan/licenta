@@ -1,10 +1,12 @@
 package com.gym.sync.entity.user;
 
+import com.gym.sync.entity.diet.Diet;
 import com.gym.sync.entity.utility.Goal;
 import org.joda.time.LocalDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -31,13 +33,14 @@ public class User implements Serializable {
     private Role role;
     private Photo photo;
     private Goal goal;
+    private List<Diet> dietList;
 
     public User() {
     }
 
     public User(long id, String firstName, String lastName, String email, String username, Gender gender,
                 LocalDate birthDate, double height, double weight, String phoneNumber, String address,
-                Role role, Photo photo, Goal goal) {
+                Role role, Photo photo, Goal goal, List<Diet> dietList) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,6 +55,7 @@ public class User implements Serializable {
         this.role = role;
         this.photo = photo;
         this.goal = goal;
+        this.dietList = dietList;
     }
 
     @Id
@@ -182,6 +186,17 @@ public class User implements Serializable {
         this.goal = goal;
     }
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_diet", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "diet_id", referencedColumnName = "diet_id"))
+    public List<Diet> getDietList() {
+        return dietList;
+    }
+
+    public void setDietList(List<Diet> dietList) {
+        this.dietList = dietList;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -199,6 +214,7 @@ public class User implements Serializable {
                 ", role=" + role +
                 ", photo=" + photo +
                 ", goal=" + goal +
+                ", dietList=" + dietList +
                 '}';
     }
 
@@ -220,11 +236,13 @@ public class User implements Serializable {
                 Objects.equals(address, user.address) &&
                 Objects.equals(role, user.role) &&
                 Objects.equals(photo, user.photo) &&
-                Objects.equals(goal, user.goal);
+                Objects.equals(goal, user.goal) &&
+                Objects.equals(dietList, user.dietList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email, username, gender, birthDate, height, weight, phoneNumber, address, role, photo, goal);
+
+        return Objects.hash(id, firstName, lastName, email, username, gender, birthDate, height, weight, phoneNumber, address, role, photo, goal, dietList);
     }
 }

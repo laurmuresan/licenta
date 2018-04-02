@@ -1,7 +1,10 @@
 package com.gym.sync.entity.meal;
 
+import com.gym.sync.entity.food.Food;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -17,14 +20,16 @@ public class Meal implements Serializable {
     private long id;
     private int calories;
     private MealType mealType;
+    private List<Food> foodList;
 
     public Meal() {
     }
 
-    public Meal(long id, int calories, MealType mealType) {
+    public Meal(long id, int calories, MealType mealType, List<Food> foodList) {
         this.id = id;
         this.calories = calories;
         this.mealType = mealType;
+        this.foodList = foodList;
     }
 
     @Id
@@ -57,12 +62,24 @@ public class Meal implements Serializable {
         this.mealType = mealType;
     }
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "meal_food", joinColumns = @JoinColumn(name = "meal_id", referencedColumnName = "meal_id"),
+            inverseJoinColumns = @JoinColumn(name = "food_id", referencedColumnName = "food_id"))
+    public List<Food> getFoodList() {
+        return foodList;
+    }
+
+    public void setFoodList(List<Food> foodList) {
+        this.foodList = foodList;
+    }
+
     @Override
     public String toString() {
         return "Meal{" +
                 "id=" + id +
                 ", calories=" + calories +
                 ", mealType=" + mealType +
+                ", foodList=" + foodList +
                 '}';
     }
 
@@ -73,12 +90,13 @@ public class Meal implements Serializable {
         Meal meal = (Meal) o;
         return id == meal.id &&
                 calories == meal.calories &&
-                mealType == meal.mealType;
+                mealType == meal.mealType &&
+                Objects.equals(foodList, meal.foodList);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, calories, mealType);
+        return Objects.hash(id, calories, mealType, foodList);
     }
 }

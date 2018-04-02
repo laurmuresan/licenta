@@ -1,7 +1,10 @@
 package com.gym.sync.entity.diet;
 
+import com.gym.sync.entity.meal.Meal;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -19,16 +22,18 @@ public class Diet implements Serializable {
     private int calories;
     private String details;
     private DietType dietType;
+    private List<Meal> mealList;
 
     public Diet() {
     }
 
-    public Diet(long id, String name, int calories, String details, DietType dietType) {
+    public Diet(long id, String name, int calories, String details, DietType dietType, List<Meal> mealList) {
         this.id = id;
         this.name = name;
         this.calories = calories;
         this.details = details;
         this.dietType = dietType;
+        this.mealList = mealList;
     }
 
     @Id
@@ -79,6 +84,17 @@ public class Diet implements Serializable {
         this.dietType = dietType;
     }
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "diet_meal", joinColumns = @JoinColumn(name = "diet_id", referencedColumnName = "diet_id"),
+            inverseJoinColumns = @JoinColumn(name = "meal_id", referencedColumnName = "meal_id"))
+    public List<Meal> getMealList() {
+        return mealList;
+    }
+
+    public void setMealList(List<Meal> mealList) {
+        this.mealList = mealList;
+    }
+
     @Override
     public String toString() {
         return "Diet{" +
@@ -87,6 +103,7 @@ public class Diet implements Serializable {
                 ", calories=" + calories +
                 ", details='" + details + '\'' +
                 ", dietType=" + dietType +
+                ", mealList=" + mealList +
                 '}';
     }
 
@@ -99,11 +116,13 @@ public class Diet implements Serializable {
                 calories == diet.calories &&
                 Objects.equals(name, diet.name) &&
                 Objects.equals(details, diet.details) &&
-                dietType == diet.dietType;
+                dietType == diet.dietType &&
+                Objects.equals(mealList, diet.mealList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, calories, details, dietType);
+
+        return Objects.hash(id, name, calories, details, dietType, mealList);
     }
 }

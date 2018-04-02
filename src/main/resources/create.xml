@@ -406,20 +406,6 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-012">
-        <sql>
-            <![CDATA[
-----------------------------------------------------------------------DAILY REPORT USER-----------------------------------------
-					CREATE TABLE "user_daily_report"
-			(
-				"user_id" BIGINT NOT NULL,
-				"daily_report_id" BIGINT NOT NULL
-            )
-			;
-         ]]>
-        </sql>
-    </changeSet>
-
     <changeSet author="lmuresan" id="20180118-013">
         <sql>
             <![CDATA[
@@ -428,7 +414,7 @@
 			(
 				"company_id" BIGINT NOT NULL,
 				"name" VARCHAR(50),
-				"location" BIGINT,
+				"location_id" BIGINT,
 				"phone" VARCHAR(30),
 				"social_media_link" VARCHAR(50),
 				"description" VARCHAR(300)
@@ -489,29 +475,71 @@
         </sql>
     </changeSet>
 
+    <changeSet author="lmuresan" id="20180118-012">
+        <sql>
+            <![CDATA[
+----------------------------------------------------------------------DIET MEAL TABLE-----------------------------------------
+					CREATE TABLE "meal_diet"
+			(
+				"diet_id" BIGINT NOT NULL,
+				"meal_id" BIGINT NOT NULL
+            )
+			;
+----------------------------------------------------------------------FOOD VITAMIN TABLE-----------------------------------------
+					CREATE TABLE "food_vitamin"
+			(
+				"food_id" BIGINT NOT NULL,
+				"vitamin_id" BIGINT NOT NULL
+            )
+			;
+----------------------------------------------------------------------MEAL FOOD TABLE-----------------------------------------
+					CREATE TABLE "meal_food"
+			(
+				"meal_id" BIGINT NOT NULL,
+				"food_id" BIGINT NOT NULL
+            )
+			;
+----------------------------------------------------------------------USER DIET TABLE-----------------------------------------
+					CREATE TABLE "user_diet"
+			(
+				"user_id" BIGINT NOT NULL,
+				"diet_id" BIGINT NOT NULL
+            )
+			;
+----------------------------------------------------------------------DAILY REPORT USER TABLE-----------------------------------------
+					CREATE TABLE "user_daily_report"
+			(
+				"user_id" BIGINT NOT NULL,
+				"daily_report_id" BIGINT NOT NULL
+            )
+			;
+          ]]>
+        </sql>
+    </changeSet>
+
     <changeSet author="lmuresan" id="20180118-014">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------CONSTRAINS AND FK KEYS-----------------------------------------
 
-    ALTER TABLE "event"
+    CREATE INDEX "xlocation1"
+    ON "company" ("location_id")
+    TABLESPACE pg_default
+    ;
+
+    ALTER TABLE "company"
     ADD CONSTRAINT "fk_location_id"
     FOREIGN KEY ("location_id") REFERENCES "location" ("location_id")
     ;
 
-    CREATE INDEX "xlocation1"
+    CREATE INDEX "xlocation2
     ON "event" ("location_id")
     TABLESPACE pg_default
     ;
 
-    ALTER TABLE "gym"
+    ALTER TABLE "event"
     ADD CONSTRAINT "fk_location_id"
     FOREIGN KEY ("location_id") REFERENCES "location" ("location_id")
-    ;
-
-    CREATE INDEX "xlocation2"
-    ON "gym" ("location_id")
-    TABLESPACE pg_default
     ;
 
 

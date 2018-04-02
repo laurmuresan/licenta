@@ -26,15 +26,15 @@ public class UserEpo implements Serializable {
     private String address;
     private RoleEpo role;
     private PhotoEpo photo;
-    private List<DietEpo> dietList;
     private GoalEpo goal;
+    private List<DietEpo> dietList;
 
     private UserEpo() {
     }
 
     public UserEpo(long id, String firstName, String lastName, String email, String username, String gender,
                    LocalDate birthDate, double height, double weight, String phoneNumber, String address,
-                   RoleEpo role, PhotoEpo photo, List<DietEpo> dietList, GoalEpo goal) {
+                   RoleEpo role, PhotoEpo photo, GoalEpo goal, List<DietEpo> dietList) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

@@ -2,6 +2,7 @@ package com.gym.sync.entity.food;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -25,12 +26,14 @@ public class Food implements Serializable {
     private double dietaryFiber;
     private double sugars;
     private double protein;
+    private List<Vitamin> vitaminList;
 
     public Food() {
     }
 
     public Food(long id, String name, FoodType foodType, int calories, double saturatedFat, double transFat,
-                double cholesterol, double sodium, double dietaryFiber, double sugars, double protein) {
+                double cholesterol, double sodium, double dietaryFiber, double sugars, double protein,
+                List<Vitamin> vitaminList) {
         this.id = id;
         this.name = name;
         this.foodType = foodType;
@@ -42,6 +45,7 @@ public class Food implements Serializable {
         this.dietaryFiber = dietaryFiber;
         this.sugars = sugars;
         this.protein = protein;
+        this.vitaminList = vitaminList;
     }
 
     @Id
@@ -146,6 +150,17 @@ public class Food implements Serializable {
         this.protein = protein;
     }
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "food_vitamin", joinColumns = @JoinColumn(name = "food_id", referencedColumnName = "food_id"),
+            inverseJoinColumns = @JoinColumn(name = "vitamin_id", referencedColumnName = "vitamin_id"))
+    public List<Vitamin> getVitaminList() {
+        return vitaminList;
+    }
+
+    public void setVitaminList(List<Vitamin> vitaminList) {
+        this.vitaminList = vitaminList;
+    }
+
     @Override
     public String toString() {
         return "Food{" +
@@ -160,6 +175,7 @@ public class Food implements Serializable {
                 ", dietaryFiber=" + dietaryFiber +
                 ", sugars=" + sugars +
                 ", protein=" + protein +
+                ", vitaminList=" + vitaminList +
                 '}';
     }
 
@@ -178,12 +194,13 @@ public class Food implements Serializable {
                 Double.compare(food.sugars, sugars) == 0 &&
                 Double.compare(food.protein, protein) == 0 &&
                 Objects.equals(name, food.name) &&
-                foodType == food.foodType;
+                foodType == food.foodType &&
+                Objects.equals(vitaminList, food.vitaminList);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, foodType, calories, saturatedFat, transFat, cholesterol, sodium, dietaryFiber, sugars, protein);
+        return Objects.hash(id, name, foodType, calories, saturatedFat, transFat, cholesterol, sodium, dietaryFiber, sugars, protein, vitaminList);
     }
 }

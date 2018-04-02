@@ -13,17 +13,16 @@ public class MealEpoMapper extends GenericMapper<Meal, MealEpo> {
 
     @Autowired
     private FoodEpoMapper foodEpoMapper;
-    @Autowired
-    private FoodRepository foodRepository;
 
     @Override
     public Meal toInternal(MealEpo epo) {
-        return new Meal(epo.getId(), epo.getCalories(), MealType.getTypeByName(epo.getMealType()));
+        return new Meal(epo.getId(), epo.getCalories(), MealType.getTypeByName(epo.getMealType()),
+                foodEpoMapper.toInternals(epo.getFoodList()));
     }
 
     @Override
     public MealEpo toExternal(Meal model) {
         return new MealEpo(model.getId(), model.getCalories(), MealType.getNameByType(model.getMealType()),
-                foodEpoMapper.toExternals(foodRepository.getAllByMealId(model.getId())));
+                foodEpoMapper.toExternals(model.getFoodList()));
     }
 }

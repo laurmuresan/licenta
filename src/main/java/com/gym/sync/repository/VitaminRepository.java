@@ -14,5 +14,4 @@ import java.util.List;
  */
 @Repository
 public interface VitaminRepository extends CrudRepository<Vitamin, Long> {
-    List<Vitamin> getAllByFoodId(long foodId);
 }
