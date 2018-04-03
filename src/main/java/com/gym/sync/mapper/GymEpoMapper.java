@@ -1,7 +1,7 @@
 package com.gym.sync.mapper;
 
-import com.gym.sync.entity.gym.Gym;
-import com.gym.sync.entity.gym.GymType;
+import com.gym.sync.entity.Gym;
+import com.gym.sync.entity.GymType;
 import com.gym.sync.epo.GymEpo;
 import org.springframework.beans.factory.annotation.Autowired;
 

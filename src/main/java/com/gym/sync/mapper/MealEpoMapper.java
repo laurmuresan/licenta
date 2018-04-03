@@ -1,9 +1,8 @@
 package com.gym.sync.mapper;
 
-import com.gym.sync.entity.meal.Meal;
-import com.gym.sync.entity.meal.MealType;
+import com.gym.sync.entity.Meal;
+import com.gym.sync.entity.MealType;
 import com.gym.sync.epo.MealEpo;
-import com.gym.sync.repository.FoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

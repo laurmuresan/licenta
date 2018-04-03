@@ -1,7 +1,5 @@
-package com.gym.sync.entity.user;
+package com.gym.sync.entity;
 
-import com.gym.sync.entity.diet.Diet;
-import com.gym.sync.entity.utility.Goal;
 import org.joda.time.LocalDate;
 
 import javax.persistence.*;
@@ -14,7 +12,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "user")
-@SequenceGenerator(sequenceName = "user_seq", allocationSize = 1, name = "UserSeq")
+@SequenceGenerator(sequenceName = "user_seq", allocationSize = 1, name = "user_seq")
 public class User implements Serializable {
 
     private static final long serialVersionUID = -4799064125572011553L;
@@ -59,7 +57,7 @@ public class User implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "UserSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     @Column(name = "user_id", unique = true, nullable = false)
     public long getId() {
         return id;
@@ -106,6 +104,7 @@ public class User implements Serializable {
     }
 
     @Column(name = "gender", nullable = false)
+    @Enumerated(EnumType.STRING)
     public Gender getGender() {
         return gender;
     }
@@ -159,7 +158,8 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    @Column(name = "role", nullable = false)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id")
     public Role getRole() {
         return role;
     }
@@ -177,7 +177,8 @@ public class User implements Serializable {
         this.photo = photo;
     }
 
-    @Column(name = "goal")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "goal_id")
     public Goal getGoal() {
         return goal;
     }

@@ -1,6 +1,4 @@
-package com.gym.sync.entity.meal;
-
-import com.gym.sync.entity.food.Food;
+package com.gym.sync.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,7 +10,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "meal")
-@SequenceGenerator(name = "meal_seq", allocationSize = 1, sequenceName = "MealSeq")
+@SequenceGenerator(name = "meal_seq", allocationSize = 1, sequenceName = "meal_seq")
 public class Meal implements Serializable {
 
     private static final long serialVersionUID = 1752981763245024791L;
@@ -34,7 +32,7 @@ public class Meal implements Serializable {
 
     @Id
     @Column(name = "meal_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MealSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "meal_seq")
     public long getId() {
         return id;
     }

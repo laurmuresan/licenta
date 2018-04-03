@@ -51,8 +51,8 @@
 				"details" VARCHAR(500),
 				"location_id" BIGINT,
 				"phone" VARCHAR(20),
-				"start_event" TIMESTAMP [ WITHOUT TIMEZONE ],
-				"end_event" TIMESTAMP [ WITHOUT TIMEZONE ]
+				"start_event" TIMESTAMP WITHOUT TIME ZONE,
+				"end_event" TIMESTAMP WITHOUT TIME ZONE
 			)
 			;
 
@@ -103,7 +103,7 @@
 			;
 
 			CREATE UNIQUE INDEX "xfood0"
-			    ON "diet" ("food_id")
+			    ON "food" ("food_id")
 			 TABLESPACE pg_default
 			  ;
 
@@ -159,18 +159,18 @@
 			(
 				"gym_id" BIGINT NOT NULL,
 				"name" VARCHAR(100),
-				"location" BIGINT,
-				"website", VARCHAR(100),
+				"location_id" BIGINT,
+				"website" VARCHAR(100),
 				"details" VARCHAR(100),
 				"phone" VARCHAR(100),
 				"type" VARCHAR(100),
-				"monday_friday_open" TIME [ WITHOUT TIMEZONE ],
-				"monday_friday_close" TIME [ WITHOUT TIMEZONE ],
-				"saturday_open" TIME [ WITHOUT TIMEZONE ],
-				"saturday_close" TIME [ WITHOUT TIMEZONE ],
-				"sunday_open" TIME [ WITHOUT TIMEZONE ],
-				"sunday_close" TIME [ WITHOUT TIMEZONE ],
-				"company" BIGINT
+				"monday_friday_open" TIME WITHOUT TIME ZONE,
+				"monday_friday_close" TIME WITHOUT TIME ZONE,
+				"saturday_open" TIME WITHOUT TIME ZONE,
+				"saturday_close" TIME WITHOUT TIME ZONE,
+				"sunday_open" TIME WITHOUT TIME ZONE,
+				"sunday_close" TIME WITHOUT TIME ZONE,
+				"company_id" BIGINT
 			)
 			;
 
@@ -271,7 +271,7 @@
 			)
 			;
 
-			ALTER TABLE "photo"
+			ALTER TABLE "role"
 			 ADD CONSTRAINT "role_id"
 				PRIMARY KEY ("role_id")
 			;
@@ -310,9 +310,9 @@
 				"weight" DOUBLE PRECISION,
 				"phone_number" VARCHAR(15),
 				"address" VARCHAR(100),
-				"role" VARCHAR(15),
-				"photo" TEXT,
-				"goal" BIGINT
+				"role_id" BIGINT,
+				"photo_id" BIGINT,
+				"goal_id" BIGINT
 			)
 			;
 
@@ -353,7 +353,7 @@
 
 			ALTER TABLE "daily_report"
 			 ADD CONSTRAINT "daily_report_id"
-				PRIMARY KEY ("dailyreport_id")
+				PRIMARY KEY ("daily_report_id")
 			;
 
 			CREATE UNIQUE INDEX "xdaily_report0"
@@ -361,7 +361,7 @@
 			 TABLESPACE pg_default
 			  ;
 
-			  	CREATE SEQUENCE user_seq
+			  	CREATE SEQUENCE daily_report_seq
 				INCREMENT BY 1
 				START WITH 1
 				MINVALUE 1
@@ -518,54 +518,47 @@
     </changeSet>
 
     <changeSet author="lmuresan" id="15">
-        <sql>
-            <![CDATA[
-----------------------------------------------------------------------CONSTRAINS AND FK KEYS-----------------------------------------
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="company"
+                                 constraintName="fk_company_location"
+                                 referencedColumnNames="location_id"
+                                 referencedTableName="location"/>
 
-    <addForeignKeyConstraint baseColumnNames="location_id"
-                             baseTableName="company"
-                             constraintName="fk_company_location"
-                             referencedColumnNames="location_id"
-                             referencedTableName="location"/>
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="event"
+                                 constraintName="fk_event_location"
+                                 referencedColumnNames="location_id"
+                                 referencedTableName="location"/>
 
-    <addForeignKeyConstraint baseColumnNames="location_id"
-                             baseTableName="event"
-                             constraintName="fk_event_location"
-                             referencedColumnNames="location_id"
-                             referencedTableName="location"/>
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="gym"
+                                 constraintName="fk_gym_location"
+                                 referencedColumnNames="location_id"
+                                 referencedTableName="location"/>
 
-    <addForeignKeyConstraint baseColumnNames="location_id"
-                             baseTableName="gym"
-                             constraintName="fk_gym_location"
-                             referencedColumnNames="location_id"
-                             referencedTableName="location"/>
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="gym"
+                                 constraintName="fk_gym_company"
+                                 referencedColumnNames="company_id"
+                                 referencedTableName="company"/>
 
-    <addForeignKeyConstraint baseColumnNames="company_id"
-                             baseTableName="gym"
-                             constraintName="fk_gym_company"
-                             referencedColumnNames="company_id"
-                             referencedTableName="company"/>
+        <addForeignKeyConstraint baseColumnNames="role_id"
+                                 baseTableName="user"
+                                 constraintName="fk_user_role"
+                                 referencedColumnNames="role_id"
+                                 referencedTableName="role"/>
 
-    <addForeignKeyConstraint baseColumnNames="role_id"
-                             baseTableName="user"
-                             constraintName="fk_user_role"
-                             referencedColumnNames="role_id"
-                             referencedTableName="role"/>
+        <addForeignKeyConstraint baseColumnNames="photo_id"
+                                 baseTableName="user"
+                                 constraintName="fk_user_photo"
+                                 referencedColumnNames="photo_id"
+                                 referencedTableName="photo"/>
 
-    <addForeignKeyConstraint baseColumnNames="photo_id"
-                             baseTableName="user"
-                             constraintName="fk_user_photo"
-                             referencedColumnNames="photo_id"
-                             referencedTableName="photo"/>
-
-    <addForeignKeyConstraint baseColumnNames="goal_id"
-                             baseTableName="user"
-                             constraintName="fk_user_goal"
-                             referencedColumnNames="goal_id"
-                             referencedTableName="goal"/>
-
-         ]]>
-        </sql>
+        <addForeignKeyConstraint baseColumnNames="goal_id"
+                                 baseTableName="user"
+                                 constraintName="fk_user_goal"
+                                 referencedColumnNames="goal_id"
+                                 referencedTableName="goal"/>
     </changeSet>
 
 </databaseChangeLog>

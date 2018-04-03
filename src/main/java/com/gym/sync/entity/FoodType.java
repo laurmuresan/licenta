@@ -1,4 +1,4 @@
-package com.gym.sync.entity.food;
+package com.gym.sync.entity;
 
 /**
  * @author laurmuresan

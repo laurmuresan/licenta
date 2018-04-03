@@ -1,7 +1,7 @@
 package com.gym.sync.mapper;
 
-import com.gym.sync.entity.user.Role;
-import com.gym.sync.entity.user.RoleType;
+import com.gym.sync.entity.Role;
+import com.gym.sync.entity.RoleType;
 import com.gym.sync.epo.RoleEpo;
 
 /**

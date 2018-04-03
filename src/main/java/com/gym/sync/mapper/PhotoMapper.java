@@ -1,6 +1,6 @@
 package com.gym.sync.mapper;
 
-import com.gym.sync.entity.user.Photo;
+import com.gym.sync.entity.Photo;
 import com.gym.sync.epo.PhotoEpo;
 
 /**

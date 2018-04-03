@@ -1,4 +1,4 @@
-package com.gym.sync.entity.food;
+package com.gym.sync.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "vitamin")
-@SequenceGenerator(sequenceName = "diet_seq", allocationSize = 1, name = "VitaminSeq")
+@SequenceGenerator(sequenceName = "diet_seq", allocationSize = 1, name = "diet_seq")
 public class Vitamin implements Serializable {
 
     private static final long serialVersionUID = -1317718451030840366L;
@@ -28,7 +28,7 @@ public class Vitamin implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "VitaminSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "diet_seq")
     @Column(name = "vitamin_id", unique = true, nullable = false)
     public long getId() {
         return id;

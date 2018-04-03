@@ -1,7 +1,7 @@
 package com.gym.sync.mapper;
 
-import com.gym.sync.entity.user.Gender;
-import com.gym.sync.entity.user.User;
+import com.gym.sync.entity.Gender;
+import com.gym.sync.entity.User;
 import com.gym.sync.epo.UserEpo;
 import org.springframework.beans.factory.annotation.Autowired;
 

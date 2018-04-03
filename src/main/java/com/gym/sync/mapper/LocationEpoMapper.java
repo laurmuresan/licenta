@@ -1,6 +1,6 @@
 package com.gym.sync.mapper;
 
-import com.gym.sync.entity.utility.Location;
+import com.gym.sync.entity.Location;
 import com.gym.sync.epo.LocationEpo;
 
 /**

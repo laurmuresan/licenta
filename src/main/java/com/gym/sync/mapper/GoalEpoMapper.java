@@ -1,6 +1,6 @@
 package com.gym.sync.mapper;
 
-import com.gym.sync.entity.utility.Goal;
+import com.gym.sync.entity.Goal;
 import com.gym.sync.epo.GoalEpo;
 
 /**

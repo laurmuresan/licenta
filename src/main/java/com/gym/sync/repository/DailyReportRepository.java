@@ -1,6 +1,6 @@
 package com.gym.sync.repository;
 
-import com.gym.sync.entity.utility.DailyReport;
+import com.gym.sync.entity.DailyReport;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

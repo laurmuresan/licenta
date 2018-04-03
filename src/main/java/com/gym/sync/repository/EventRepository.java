@@ -1,6 +1,6 @@
 package com.gym.sync.repository;
 
-import com.gym.sync.entity.event.Event;
+import com.gym.sync.entity.Event;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

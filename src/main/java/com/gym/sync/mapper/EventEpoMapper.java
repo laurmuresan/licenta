@@ -1,6 +1,6 @@
 package com.gym.sync.mapper;
 
-import com.gym.sync.entity.event.Event;
+import com.gym.sync.entity.Event;
 import com.gym.sync.epo.EventEpo;
 import org.springframework.beans.factory.annotation.Autowired;
 

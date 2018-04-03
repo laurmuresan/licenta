@@ -1,6 +1,5 @@
-package com.gym.sync.entity.event;
+package com.gym.sync.entity;
 
-import com.gym.sync.entity.utility.Location;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 
@@ -13,7 +12,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "event")
-@SequenceGenerator(sequenceName = "event_seq", allocationSize = 1, name = "EventSeq")
+@SequenceGenerator(sequenceName = "event_seq", allocationSize = 1, name = "event_seq")
 public class Event implements Serializable {
 
     private static final long serialVersionUID = 5656903129153453979L;
@@ -43,7 +42,7 @@ public class Event implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EventSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "event_seq")
     @Column(name = "event_id", unique = true, nullable = false)
     public String getId() {
         return id;

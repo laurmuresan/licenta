@@ -1,6 +1,6 @@
 package com.gym.sync.repository;
 
-import com.gym.sync.entity.diet.Diet;
+import com.gym.sync.entity.Diet;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

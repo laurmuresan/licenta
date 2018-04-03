@@ -1,6 +1,6 @@
 package com.gym.sync.mapper;
 
-import com.gym.sync.entity.food.Vitamin;
+import com.gym.sync.entity.Vitamin;
 import com.gym.sync.epo.VitaminEpo;
 
 /**

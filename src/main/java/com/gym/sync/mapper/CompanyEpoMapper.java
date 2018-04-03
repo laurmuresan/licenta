@@ -1,6 +1,6 @@
 package com.gym.sync.mapper;
 
-import com.gym.sync.entity.company.Company;
+import com.gym.sync.entity.Company;
 import com.gym.sync.epo.CompanyEpo;
 import org.springframework.beans.factory.annotation.Autowired;
 

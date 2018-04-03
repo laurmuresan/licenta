@@ -1,4 +1,4 @@
-package com.gym.sync.entity.utility;
+package com.gym.sync.entity;
 
 import org.joda.time.LocalDate;
 
@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "goal")
-@SequenceGenerator(sequenceName = "goal_seq", allocationSize = 1, name = "GoalSeq")
+@SequenceGenerator(sequenceName = "goal_seq", allocationSize = 1, name = "goal_seq")
 public class Goal implements Serializable {
 
     private static final long serialVersionUID = -7841154153479546722L;
@@ -30,7 +30,7 @@ public class Goal implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GoalSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "goal_seq")
     @Column(name = "goal_id", unique = true, nullable = false)
     public long getId() {
         return id;

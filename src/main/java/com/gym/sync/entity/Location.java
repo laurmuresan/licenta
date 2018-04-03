@@ -1,4 +1,4 @@
-package com.gym.sync.entity.utility;
+package com.gym.sync.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "location")
-@SequenceGenerator(sequenceName = "location_seq", allocationSize = 1, name = "LocationSeq")
+@SequenceGenerator(sequenceName = "location_seq", allocationSize = 1, name = "location_seq")
 public class Location implements Serializable {
 
     private static final long serialVersionUID = -4955660391712940457L;
@@ -30,7 +30,7 @@ public class Location implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "LocationSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "location_seq")
     @Column(name = "location_id", unique = true, nullable = false)
     public long getId() {
         return id;

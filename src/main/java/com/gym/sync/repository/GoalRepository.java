@@ -1,6 +1,6 @@
 package com.gym.sync.repository;
 
-import com.gym.sync.entity.utility.Goal;
+import com.gym.sync.entity.Goal;
 import org.springframework.data.repository.CrudRepository;
 
 /**

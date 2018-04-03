@@ -1,7 +1,5 @@
-package com.gym.sync.entity.gym;
+package com.gym.sync.entity;
 
-import com.gym.sync.entity.company.Company;
-import com.gym.sync.entity.utility.Location;
 import org.joda.time.LocalTime;
 
 import javax.persistence.*;
@@ -13,7 +11,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "gym")
-@SequenceGenerator(sequenceName = "gym_seq", allocationSize = 1, name = "GymSeq")
+@SequenceGenerator(sequenceName = "gym_seq", allocationSize = 1, name = "gym_seq")
 public class Gym implements Serializable {
 
     private static final long serialVersionUID = 7873859243956216412L;
@@ -56,7 +54,7 @@ public class Gym implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GymSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gym_seq")
     @Column(name = "gym_id", unique = true, nullable = false)
     public long getId() {
         return id;

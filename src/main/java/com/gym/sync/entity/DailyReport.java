@@ -1,4 +1,4 @@
-package com.gym.sync.entity.utility;
+package com.gym.sync.entity;
 
 import org.joda.time.LocalDate;
 
@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "daily_report")
-@SequenceGenerator(sequenceName = "daily_report_seq", allocationSize = 1, name = "DailyReportSeq")
+@SequenceGenerator(sequenceName = "daily_report_seq", allocationSize = 1, name = "daily_report_seq")
 public class DailyReport implements Serializable{
 
     private static final long serialVersionUID = 3040023761979009702L;
@@ -24,7 +24,7 @@ public class DailyReport implements Serializable{
     private int messageReport;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DailyReportSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "daily_report_seq")
     @Column(name = "daily_report_id", unique = true, nullable = false)
     public long getId() {
         return id;
