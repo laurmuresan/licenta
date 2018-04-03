@@ -4,7 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
-    <changeSet author="lmuresan" id="20180118-001">
+    <changeSet author="lmuresan" id="01">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------DIET TABLE-----------------------------------------
@@ -39,7 +39,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-002">
+    <changeSet author="lmuresan" id="02">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------EVENT TABLE-----------------------------------------
@@ -77,7 +77,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-003">
+    <changeSet author="lmuresan" id="03">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------FOOD TABLE-----------------------------------------
@@ -118,7 +118,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-004">
+    <changeSet author="lmuresan" id="04">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------VITAMIN TABLE-----------------------------------------
@@ -151,7 +151,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-005">
+    <changeSet author="lmuresan" id="05">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------GYM TABLE-----------------------------------------
@@ -195,7 +195,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-006">
+    <changeSet author="lmuresan" id="06">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------MEAL TABLE-----------------------------------------
@@ -228,7 +228,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-007">
+    <changeSet author="lmuresan" id="07">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------PHOTO TABLE-----------------------------------------
@@ -260,7 +260,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-008">
+    <changeSet author="lmuresan" id="08">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------ROLE TABLE-----------------------------------------
@@ -293,7 +293,7 @@
     </changeSet>
 
 
-    <changeSet author="lmuresan" id="20180118-009">
+    <changeSet author="lmuresan" id="09">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------USER TABLE-----------------------------------------
@@ -337,7 +337,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-010">
+    <changeSet author="lmuresan" id="10">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------DAILY-REPORT TABLE-----------------------------------------
@@ -372,7 +372,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-011">
+    <changeSet author="lmuresan" id="11">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------LOCATION TABLE-----------------------------------------
@@ -406,7 +406,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-013">
+    <changeSet author="lmuresan" id="12">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------COMPANY TABLE-----------------------------------------
@@ -442,7 +442,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-013">
+    <changeSet author="lmuresan" id="13">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------GOAL TABLE-----------------------------------------
@@ -475,7 +475,7 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-012">
+    <changeSet author="lmuresan" id="14">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------DIET MEAL TABLE-----------------------------------------
@@ -517,31 +517,52 @@
         </sql>
     </changeSet>
 
-    <changeSet author="lmuresan" id="20180118-014">
+    <changeSet author="lmuresan" id="15">
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------CONSTRAINS AND FK KEYS-----------------------------------------
 
-    CREATE INDEX "xlocation1"
-    ON "company" ("location_id")
-    TABLESPACE pg_default
-    ;
+    <addForeignKeyConstraint baseColumnNames="location_id"
+                             baseTableName="company"
+                             constraintName="fk_company_location"
+                             referencedColumnNames="location_id"
+                             referencedTableName="location"/>
 
-    ALTER TABLE "company"
-    ADD CONSTRAINT "fk_location_id"
-    FOREIGN KEY ("location_id") REFERENCES "location" ("location_id")
-    ;
+    <addForeignKeyConstraint baseColumnNames="location_id"
+                             baseTableName="event"
+                             constraintName="fk_event_location"
+                             referencedColumnNames="location_id"
+                             referencedTableName="location"/>
 
-    CREATE INDEX "xlocation2
-    ON "event" ("location_id")
-    TABLESPACE pg_default
-    ;
+    <addForeignKeyConstraint baseColumnNames="location_id"
+                             baseTableName="gym"
+                             constraintName="fk_gym_location"
+                             referencedColumnNames="location_id"
+                             referencedTableName="location"/>
 
-    ALTER TABLE "event"
-    ADD CONSTRAINT "fk_location_id"
-    FOREIGN KEY ("location_id") REFERENCES "location" ("location_id")
-    ;
+    <addForeignKeyConstraint baseColumnNames="company_id"
+                             baseTableName="gym"
+                             constraintName="fk_gym_company"
+                             referencedColumnNames="company_id"
+                             referencedTableName="company"/>
 
+    <addForeignKeyConstraint baseColumnNames="role_id"
+                             baseTableName="user"
+                             constraintName="fk_user_role"
+                             referencedColumnNames="role_id"
+                             referencedTableName="role"/>
+
+    <addForeignKeyConstraint baseColumnNames="photo_id"
+                             baseTableName="user"
+                             constraintName="fk_user_photo"
+                             referencedColumnNames="photo_id"
+                             referencedTableName="photo"/>
+
+    <addForeignKeyConstraint baseColumnNames="goal_id"
+                             baseTableName="user"
+                             constraintName="fk_user_goal"
+                             referencedColumnNames="goal_id"
+                             referencedTableName="goal"/>
 
          ]]>
         </sql>
