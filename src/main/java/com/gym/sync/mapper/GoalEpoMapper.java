@@ -2,10 +2,12 @@ package com.gym.sync.mapper;
 
 import com.gym.sync.entity.Goal;
 import com.gym.sync.epo.GoalEpo;
+import org.springframework.stereotype.Service;
 
 /**
  * @author laurmuresan
  */
+@Service
 public class GoalEpoMapper extends GenericMapper<Goal, GoalEpo> {
 
     @Override

@@ -4,10 +4,12 @@ import com.gym.sync.entity.Food;
 import com.gym.sync.entity.FoodType;
 import com.gym.sync.epo.FoodEpo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author laurmuresan
  */
+@Service
 public class FoodEpoMapper extends GenericMapper<Food, FoodEpo> {
 
     @Autowired

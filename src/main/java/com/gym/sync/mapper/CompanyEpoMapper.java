@@ -3,10 +3,12 @@ package com.gym.sync.mapper;
 import com.gym.sync.entity.Company;
 import com.gym.sync.epo.CompanyEpo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author laurmuresan
  */
+@Service
 public class CompanyEpoMapper extends GenericMapper<Company, CompanyEpo> {
 
     @Autowired

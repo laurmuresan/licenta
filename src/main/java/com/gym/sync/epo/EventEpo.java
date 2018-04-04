@@ -13,7 +13,7 @@ public class EventEpo implements Serializable {
 
     private static final long serialVersionUID = 6586807749962157261L;
 
-    private String id;
+    private long id;
     private String name;
     private LocalDate date;
     private String details;
@@ -25,7 +25,7 @@ public class EventEpo implements Serializable {
     private EventEpo() {
     }
 
-    public EventEpo(String id, String name, LocalDate date, String details, LocationEpo location,
+    public EventEpo(long id, String name, LocalDate date, String details, LocationEpo location,
                     String phone, LocalDateTime startEvent, LocalDateTime endEvent) {
         this.id = id;
         this.name = name;
@@ -37,7 +37,7 @@ public class EventEpo implements Serializable {
         this.endEvent = endEvent;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 

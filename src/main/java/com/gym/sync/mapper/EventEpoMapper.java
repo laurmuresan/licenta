@@ -3,10 +3,12 @@ package com.gym.sync.mapper;
 import com.gym.sync.entity.Event;
 import com.gym.sync.epo.EventEpo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author laurmuresan
  */
+@Service
 public class EventEpoMapper extends GenericMapper<Event, EventEpo> {
 
     @Autowired

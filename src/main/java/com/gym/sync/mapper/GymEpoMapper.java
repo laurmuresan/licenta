@@ -4,10 +4,12 @@ import com.gym.sync.entity.Gym;
 import com.gym.sync.entity.GymType;
 import com.gym.sync.epo.GymEpo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author laurmuresan
  */
+@Service
 public class GymEpoMapper extends GenericMapper<Gym, GymEpo> {
 
     @Autowired

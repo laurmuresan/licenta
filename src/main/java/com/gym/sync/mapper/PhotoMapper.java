@@ -2,10 +2,12 @@ package com.gym.sync.mapper;
 
 import com.gym.sync.entity.Photo;
 import com.gym.sync.epo.PhotoEpo;
+import org.springframework.stereotype.Service;
 
 /**
  * @author laurmuresan
  */
+@Service
 public class PhotoMapper extends GenericMapper<Photo, PhotoEpo> {
 
     @Override

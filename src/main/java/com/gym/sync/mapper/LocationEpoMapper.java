@@ -2,10 +2,12 @@ package com.gym.sync.mapper;
 
 import com.gym.sync.entity.Location;
 import com.gym.sync.epo.LocationEpo;
+import org.springframework.stereotype.Service;
 
 /**
  * @author laurmuresan
  */
+@Service
 public class LocationEpoMapper extends GenericMapper<Location, LocationEpo> {
 
     @Override

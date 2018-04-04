@@ -17,7 +17,7 @@ public class Event implements Serializable {
 
     private static final long serialVersionUID = 5656903129153453979L;
 
-    private String id;
+    private long id;
     private String name;
     private LocalDate date;
     private String details;
@@ -29,7 +29,7 @@ public class Event implements Serializable {
     public Event() {
     }
 
-    public Event(String id, String name, LocalDate date, String details, Location location,
+    public Event(long id, String name, LocalDate date, String details, Location location,
                  String phone, LocalDateTime startEvent, LocalDateTime endEvent) {
         this.id = id;
         this.name = name;
@@ -44,11 +44,11 @@ public class Event implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "event_seq")
     @Column(name = "event_id", unique = true, nullable = false)
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

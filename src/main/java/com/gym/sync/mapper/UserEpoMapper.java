@@ -4,10 +4,12 @@ import com.gym.sync.entity.Gender;
 import com.gym.sync.entity.User;
 import com.gym.sync.epo.UserEpo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author laurmuresan
  */
+@Service
 public class UserEpoMapper extends GenericMapper<User, UserEpo> {
 
     @Autowired

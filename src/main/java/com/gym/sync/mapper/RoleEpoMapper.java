@@ -3,10 +3,12 @@ package com.gym.sync.mapper;
 import com.gym.sync.entity.Role;
 import com.gym.sync.entity.RoleType;
 import com.gym.sync.epo.RoleEpo;
+import org.springframework.stereotype.Service;
 
 /**
  * @author laurmuresan
  */
+@Service
 public class RoleEpoMapper extends GenericMapper<Role, RoleEpo> {
 
     @Override

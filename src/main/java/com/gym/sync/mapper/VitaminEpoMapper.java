@@ -2,10 +2,12 @@ package com.gym.sync.mapper;
 
 import com.gym.sync.entity.Vitamin;
 import com.gym.sync.epo.VitaminEpo;
+import org.springframework.stereotype.Service;
 
 /**
  * @author laurmuresan
  */
+@Service
 public class VitaminEpoMapper extends GenericMapper<Vitamin, VitaminEpo> {
 
     @Override

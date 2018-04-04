@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 /**
  * @author laurmuresan
  */
-public abstract class GenericMapper<M, E extends Object> {
+public abstract class GenericMapper<M, E> {
 
     public abstract M toInternal(E epo);
 
