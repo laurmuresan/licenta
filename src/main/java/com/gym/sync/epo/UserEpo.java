@@ -17,6 +17,7 @@ public class UserEpo implements Serializable {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
     private String username;
     private String gender;
     private LocalDate birthDate;
@@ -32,7 +33,7 @@ public class UserEpo implements Serializable {
     private UserEpo() {
     }
 
-    public UserEpo(long id, String firstName, String lastName, String email, String username, String gender,
+    public UserEpo(long id, String firstName, String lastName, String email, String password, String username, String gender,
                    LocalDate birthDate, double height, double weight, String phoneNumber, String address,
                    RoleEpo role, PhotoEpo photo, GoalEpo goal, List<DietEpo> dietList) {
         this.id = id;
@@ -40,6 +41,7 @@ public class UserEpo implements Serializable {
         this.lastName = lastName;
         this.email = email;
         this.username = username;
+        this.password = password;
         this.gender = gender;
         this.birthDate = birthDate;
         this.height = height;
@@ -70,6 +72,10 @@ public class UserEpo implements Serializable {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getGender() {
@@ -119,6 +125,7 @@ public class UserEpo implements Serializable {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", username='" + username + '\'' +
                 ", gender='" + gender + '\'' +
                 ", birthDate=" + birthDate +
@@ -128,8 +135,8 @@ public class UserEpo implements Serializable {
                 ", address='" + address + '\'' +
                 ", role=" + role +
                 ", photo=" + photo +
-                ", dietList=" + dietList +
                 ", goal=" + goal +
+                ", dietList=" + dietList +
                 '}';
     }
 
@@ -144,6 +151,7 @@ public class UserEpo implements Serializable {
                 Objects.equals(firstName, userEpo.firstName) &&
                 Objects.equals(lastName, userEpo.lastName) &&
                 Objects.equals(email, userEpo.email) &&
+                Objects.equals(password, userEpo.password) &&
                 Objects.equals(username, userEpo.username) &&
                 Objects.equals(gender, userEpo.gender) &&
                 Objects.equals(birthDate, userEpo.birthDate) &&
@@ -151,12 +159,13 @@ public class UserEpo implements Serializable {
                 Objects.equals(address, userEpo.address) &&
                 Objects.equals(role, userEpo.role) &&
                 Objects.equals(photo, userEpo.photo) &&
-                Objects.equals(dietList, userEpo.dietList) &&
-                Objects.equals(goal, userEpo.goal);
+                Objects.equals(goal, userEpo.goal) &&
+                Objects.equals(dietList, userEpo.dietList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email, username, gender, birthDate, height, weight, phoneNumber, address, role, photo, dietList, goal);
+
+        return Objects.hash(id, firstName, lastName, email, password, username, gender, birthDate, height, weight, phoneNumber, address, role, photo, goal, dietList);
     }
 }

@@ -22,8 +22,8 @@ public class UserEpoMapper extends GenericMapper<User, UserEpo> {
     @Override
     public User toInternal(UserEpo epo) {
         return new User(epo.getId(), epo.getFirstName(), epo.getLastName(), epo.getEmail(), epo.getUsername(),
-                Gender.getTypeByName(epo.getGender()), epo.getBirthDate(), epo.getHeight(), epo.getWeight(),
-                epo.getPhoneNumber(), epo.getAddress(), roleEpoMapper.toInternal(epo.getRole()),
+                epo.getPassword(), Gender.getTypeByName(epo.getGender()), epo.getBirthDate(), epo.getHeight(),
+                epo.getWeight(), epo.getPhoneNumber(), epo.getAddress(), roleEpoMapper.toInternal(epo.getRole()),
                 photoEpoMapper.toInternal(epo.getPhoto()), goalEpoMapper.toInternal(epo.getGoal()),
                 dietEpoMapper.toInternals(epo.getDietList()));
     }
@@ -31,8 +31,8 @@ public class UserEpoMapper extends GenericMapper<User, UserEpo> {
     @Override
     public UserEpo toExternal(User model) {
         return new UserEpo(model.getId(), model.getFirstName(), model.getLastName(), model.getEmail(),
-                model.getUsername(), Gender.getNameByType(model.getGender()), model.getBirthDate(), model.getHeight(),
-                model.getWeight(), model.getPhoneNumber(), model.getAddress(),
+                model.getPassword(), model.getUsername(), Gender.getNameByType(model.getGender()), model.getBirthDate(),
+                model.getHeight(), model.getWeight(), model.getPhoneNumber(), model.getAddress(),
                 roleEpoMapper.toExternal(model.getRole()), photoEpoMapper.toExternal(model.getPhoto()),
                 goalEpoMapper.toExternal(model.getGoal()),
                 dietEpoMapper.toExternals(model.getDietList()));

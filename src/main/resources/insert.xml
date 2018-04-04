@@ -1,8 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-				   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-				   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-	<include file="create.xml" /> 
+    <include file="create.xml"/>
+
+    <changeSet author="lmuresan" id="01">
+        <sql>
+            <![CDATA[
+            INSERT INTO location(location_id, address, longitude, latitude) VALUES (1, 'Test location 1 address', 0, 0);
+            INSERT INTO location(location_id, address, longitude, latitude) VALUES (2, 'Test location 2 address', 0, 0);
+            INSERT INTO location(location_id, address, longitude, latitude) VALUES (3, 'Test location 3 address', 0, 0);
+            INSERT INTO location(location_id, address, longitude, latitude) VALUES (4, 'Test location 4 address', 0, 0);
+            INSERT INTO location(location_id, address, longitude, latitude) VALUES (5, 'Test location 5 address', 0, 0);
+            INSERT INTO location(location_id, address, longitude, latitude) VALUES (6, 'Test location 6 address', 0, 0);
+            INSERT INTO location(location_id, address, longitude, latitude) VALUES (7, 'Test location 7 address', 0, 0);
+            INSERT INTO location(location_id, address, longitude, latitude) VALUES (8, 'Test location 8 address', 0, 0);
+            INSERT INTO location(location_id, address, longitude, latitude) VALUES (9, 'Test location 9 address', 0, 0);
+
+		    INSERT INTO company(company_id, name, location_id, phone, social_media_link, description)
+		    VALUES (1,'Test Company 1', 1, '1234567890','www.testcompany1.com','Test company 1.');
+		    INSERT INTO company(company_id, name, location_id, phone, social_media_link, description)
+		    VALUES (2,'Test Company 2', 2, '1234567890','www.testcompany2.com','Test company 2.');
+		    INSERT INTO company(company_id, name, location_id, phone, social_media_link, description)
+		    VALUES (3,'Test Company 3', 3, '1234567890','www.testcompany3.com','Test company 3.');
+
+            INSERT INTO event(event_id, name, date, location_id, phone, start_event, end_event)
+            VALUES (1, 'Test Event 1', '2018-01-10', 4, '0123456789', '11:00:00', '14:00:00');
+            INSERT INTO event(event_id, name, date, location_id, phone, start_event, end_event)
+            VALUES (2, 'Test Event 2', '2018-02-20', 5, '0123456789', '12:00:00', '14:00:00');
+            INSERT INTO event(event_id, name, date, location_id, phone, start_event, end_event)
+            VALUES (3, 'Test Event 3', '2018-03-30', 6, '0123456789', '13:00:00', '14:00:00');
+
+            INSERT INTO gym(gym_id, name, location_id, website, details, phone, type, monday_friday_open, monday_friday_close, saturday_open, saturday_close, sunday_open, sunday_close, company_id)
+            VALUES (1, 'Test gym 1', 7, 'www.testgym1.com', 'Test gym 1 details', '0123456789', 'AEROBIC', '08:00:00', '20:00:00', '10:00:00', '18:00:00', '10:00:00', '16:00:00', 1);
+            INSERT INTO gym(gym_id, name, location_id, website, details, phone, type, monday_friday_open, monday_friday_close, saturday_open, saturday_close, sunday_open, sunday_close, company_id)
+            VALUES (2, 'Test gym 2', 8, 'www.testgym2.com', 'Test gym 2 details', '0123456789', 'FITNESS', '08:00:00', '20:00:00', '10:00:00', '18:00:00', '10:00:00', '16:00:00', 2);
+            INSERT INTO gym(gym_id, name, location_id, website, details, phone, type, monday_friday_open, monday_friday_close, saturday_open, saturday_close, sunday_open, sunday_close, company_id)
+            VALUES (3, 'Test gym 3', 9, 'www.testgym3.com', 'Test gym 3 details', '0123456789', 'PILATES', '08:00:00', '20:00:00', '10:00:00', '18:00:00', '10:00:00', '16:00:00', 3);
+
+            INSERT INTO role(role_id, type) VALUES (1, 'ADMIN');
+            INSERT INTO role(role_id, type) VALUES (2, 'USER');
+
+            INSERT INTO photo(photo_id, photo) VALUES (1,'photo');
+            INSERT INTO photo(photo_id, photo) VALUES (2,'photo');
+            INSERT INTO photo(photo_id, photo) VALUES (3,'photo');
+
+            INSERT INTO goal(goal_id, weight, deadline) VALUES (0, 0, '2018-10-10');
+            INSERT INTO goal(goal_id, weight, deadline) VALUES (1, 60, '2018-10-10');
+            INSERT INTO goal(goal_id, weight, deadline) VALUES (2, 70, '2018-10-20');
+            INSERT INTO goal(goal_id, weight, deadline) VALUES (3, 50, '2018-10-20');
+
+            INSERT INTO diet(diet_id, name, calories, details, type) VALUES (0, 'Test Diet 0', 0, 'Test Diet 0', 'LOSS');
+            INSERT INTO diet(diet_id, name, calories, details, type) VALUES (1, 'Test Diet 1', 100, 'Test Diet 1', 'LOSS');
+            INSERT INTO diet(diet_id, name, calories, details, type) VALUES (2, 'Test Diet 2', 200, 'Test Diet 2', 'MAINTENANCE');
+            INSERT INTO diet(diet_id, name, calories, details, type) VALUES (3, 'Test Diet 3', 300, 'Test Diet 3', 'GAIN');
+
+            INSERT INTO meal(meal_id, calories, type) VALUES (1, 100, 'BREAKFAST');
+            INSERT INTO meal(meal_id, calories, type) VALUES (2, 100, 'LUNCH');
+            INSERT INTO meal(meal_id, calories, type) VALUES (3, 100, 'SNACK');
+            INSERT INTO meal(meal_id, calories, type) VALUES (4, 100, 'DINNER');
+            INSERT INTO meal(meal_id, calories, type) VALUES (5, 200, 'BREAKFAST');
+            INSERT INTO meal(meal_id, calories, type) VALUES (6, 200, 'LUNCH');
+            INSERT INTO meal(meal_id, calories, type) VALUES (7, 200, 'SNACK');
+            INSERT INTO meal(meal_id, calories, type) VALUES (8, 200, 'DINNER');
+            INSERT INTO meal(meal_id, calories, type) VALUES (9, 300, 'BREAKFAST');
+            INSERT INTO meal(meal_id, calories, type) VALUES (10, 300, 'LUNCH');
+            INSERT INTO meal(meal_id, calories, type) VALUES (11, 300, 'SNACK');
+            INSERT INTO meal(meal_id, calories, type) VALUES (12, 300, 'DINNER');
+
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (1, 'Test Food 1', 'FRUIT', 10, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7);
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (2, 'Test Food 2', 'DAIRY', 20, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7);
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (3, 'Test Food 3', 'GRAIN', 30, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7);
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (4, 'Test Food 4', 'FRUIT', 10, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7);
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (5, 'Test Food 5', 'DAIRY', 20, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7);
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (6, 'Test Food 6', 'GRAIN', 30, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7);
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (7, 'Test Food 7', 'FRUIT', 10, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7);
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (8, 'Test Food 8', 'DAIRY', 20, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7);
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (9, 'Test Food 9', 'GRAIN', 30, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7);
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (10, 'Test Food 10', 'FRUIT', 10, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7);
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (11, 'Test Food 11', 'DAIRY', 20, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7);
+            INSERT INTO food(food_id, name, type, calories, saturated_fat, trans_fat, cholesterol, sodium, dietary_fiber, sugars, protein)
+            VALUES (12, 'Test Food 12', 'GRAIN', 30, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7);
+
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (1, 'Test Vitamin 1', 10);
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (2, 'Test Vitamin 2', 20);
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (3, 'Test Vitamin 3', 30);
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (4, 'Test Vitamin 4', 40);
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (5, 'Test Vitamin 5', 50);
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (6, 'Test Vitamin 6', 60);
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (7, 'Test Vitamin 7', 10);
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (8, 'Test Vitamin 8', 20);
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (9, 'Test Vitamin 9', 30);
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (10, 'Test Vitamin 10', 40);
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (11, 'Test Vitamin 11', 50);
+            INSERT INTO vitamin(vitamin_id, name, percent) VALUES (12, 'Test Vitamin 12', 60);
+
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (1, 1);
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (1, 2);
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (1, 3);
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (1, 4);
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (2, 5);
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (2, 6);
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (2, 7);
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (2, 8);
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (3, 9);
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (3, 10);
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (3, 11);
+            INSERT INTO diet_meal(diet_id, meal_id) VALUES (3, 12);
+
+            INSERT INTO meal_food(meal_id, food_id) VALUES (1, 1);
+            INSERT INTO meal_food(meal_id, food_id) VALUES (2, 2);
+            INSERT INTO meal_food(meal_id, food_id) VALUES (3, 3);
+            INSERT INTO meal_food(meal_id, food_id) VALUES (4, 4);
+            INSERT INTO meal_food(meal_id, food_id) VALUES (5, 5);
+            INSERT INTO meal_food(meal_id, food_id) VALUES (6, 6);
+            INSERT INTO meal_food(meal_id, food_id) VALUES (7, 7);
+            INSERT INTO meal_food(meal_id, food_id) VALUES (8, 8);
+            INSERT INTO meal_food(meal_id, food_id) VALUES (9, 9);
+            INSERT INTO meal_food(meal_id, food_id) VALUES (10, 10);
+            INSERT INTO meal_food(meal_id, food_id) VALUES (11, 11);
+
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (1, 1);
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (2, 2);
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (3, 3);
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (4, 4);
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (5, 5);
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (6, 6);
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (7, 7);
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (8, 8);
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (9, 9);
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (10, 10);
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (11, 11);
+            INSERT INTO food_vitamin(food_id, vitamin_id) VALUES (12, 12);
+
+            INSERT INTO user_entity(user_id, first_name, last_name, email, username, password, gender, birth_date, height, weight, phone_number, address, role_id, photo_id, goal_id)
+            VALUES (0, 'admin', 'admin', 'admin@yahoo.com', 'admin', 'admin', 'MALE', '2001-01-10', 0, 0, '0123456789', 'Admin Address', 1, 1, 0);
+            INSERT INTO user_entity(user_id, first_name, last_name, email, username, password, gender, birth_date, height, weight, phone_number, address, role_id, photo_id, goal_id)
+            VALUES (1, 'Test First Name 1', 'Test Last Name 1', 'testuser1@yahoo.com', 'testuser1', 'testuser1', 'MALE', '2001-01-10', 190, 80, '0123456789', 'Test User 1 Address', 2, 1, 1);
+            INSERT INTO user_entity(user_id, first_name, last_name, email, username, password, gender, birth_date, height, weight, phone_number, address, role_id, photo_id, goal_id)
+            VALUES (2, 'Test First Name 2', 'Test Last Name 2', 'testuser2@yahoo.com', 'testuser2', 'testuser2', 'MALE', '2001-01-10', 190, 80, '0123456789', 'Test User 2 Address', 2, 2, 2);
+            INSERT INTO user_entity(user_id, first_name, last_name, email, username, password, gender, birth_date, height, weight, phone_number, address, role_id, photo_id, goal_id)
+            VALUES (3, 'Test First Name 3', 'Test Last Name 3', 'testuser3@yahoo.com', 'testuser3', 'testuser3', 'MALE', '2001-01-10', 190, 80, '0123456789', 'Test User 3 Address', 2, 3, 3);
+
+            INSERT INTO user_diet(user_id, diet_id) VALUES (0, 0);
+            INSERT INTO user_diet(user_id, diet_id) VALUES (1, 1);
+            INSERT INTO user_diet(user_id, diet_id) VALUES (2, 2);
+            INSERT INTO user_diet(user_id, diet_id) VALUES (3, 3);
+
+            ]]>
+        </sql>
+    </changeSet>
 
 </databaseChangeLog>

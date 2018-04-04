@@ -51,8 +51,8 @@
 				"details" VARCHAR(500),
 				"location_id" BIGINT,
 				"phone" VARCHAR(20),
-				"start_event" TIMESTAMP WITHOUT TIME ZONE,
-				"end_event" TIMESTAMP WITHOUT TIME ZONE
+				"start_event" TIME WITHOUT TIME ZONE,
+				"end_event" TIME WITHOUT TIME ZONE
 			)
 			;
 
@@ -297,13 +297,14 @@
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------USER TABLE-----------------------------------------
-					CREATE TABLE "user"
+					CREATE TABLE "user_entity"
 			(
 				"user_id" BIGINT NOT NULL,
 				"first_name" VARCHAR(50),
 				"last_name" VARCHAR(50),
 				"email" VARCHAR(100),
 				"username" VARCHAR(50),
+				"password" VARCHAR(100),
 				"gender" VARCHAR(10),
 				"birth_date" DATE,
 				"height" DOUBLE PRECISION,
@@ -316,13 +317,13 @@
 			)
 			;
 
-			ALTER TABLE "user"
+			ALTER TABLE "user_entity"
 			 ADD CONSTRAINT "user_id"
 				PRIMARY KEY ("user_id")
 			;
 
 			CREATE UNIQUE INDEX "xuser0"
-			    ON "user" ("user_id")
+			    ON "user_entity" ("user_id")
 			 TABLESPACE pg_default
 			  ;
 
@@ -479,17 +480,10 @@
         <sql>
             <![CDATA[
 ----------------------------------------------------------------------DIET MEAL TABLE-----------------------------------------
-					CREATE TABLE "meal_diet"
+					CREATE TABLE "diet_meal"
 			(
 				"diet_id" BIGINT NOT NULL,
 				"meal_id" BIGINT NOT NULL
-            )
-			;
-----------------------------------------------------------------------FOOD VITAMIN TABLE-----------------------------------------
-					CREATE TABLE "food_vitamin"
-			(
-				"food_id" BIGINT NOT NULL,
-				"vitamin_id" BIGINT NOT NULL
             )
 			;
 ----------------------------------------------------------------------MEAL FOOD TABLE-----------------------------------------
@@ -497,6 +491,13 @@
 			(
 				"meal_id" BIGINT NOT NULL,
 				"food_id" BIGINT NOT NULL
+            )
+			;
+----------------------------------------------------------------------FOOD VITAMIN TABLE-----------------------------------------
+					CREATE TABLE "food_vitamin"
+			(
+				"food_id" BIGINT NOT NULL,
+				"vitamin_id" BIGINT NOT NULL
             )
 			;
 ----------------------------------------------------------------------USER DIET TABLE-----------------------------------------
@@ -543,22 +544,82 @@
                                  referencedTableName="company"/>
 
         <addForeignKeyConstraint baseColumnNames="role_id"
-                                 baseTableName="user"
+                                 baseTableName="user_entity"
                                  constraintName="fk_user_role"
                                  referencedColumnNames="role_id"
                                  referencedTableName="role"/>
 
         <addForeignKeyConstraint baseColumnNames="photo_id"
-                                 baseTableName="user"
+                                 baseTableName="user_entity"
                                  constraintName="fk_user_photo"
                                  referencedColumnNames="photo_id"
                                  referencedTableName="photo"/>
 
         <addForeignKeyConstraint baseColumnNames="goal_id"
-                                 baseTableName="user"
+                                 baseTableName="user_entity"
                                  constraintName="fk_user_goal"
                                  referencedColumnNames="goal_id"
                                  referencedTableName="goal"/>
+
+        <addForeignKeyConstraint baseColumnNames="diet_id"
+                                 baseTableName="diet_meal"
+                                 constraintName="fk_diet_meal_diet"
+                                 referencedColumnNames="diet_id"
+                                 referencedTableName="diet"/>
+
+        <addForeignKeyConstraint baseColumnNames="meal_id"
+                                 baseTableName="diet_meal"
+                                 constraintName="fk_diet_meal_meal"
+                                 referencedColumnNames="meal_id"
+                                 referencedTableName="meal"/>
+
+        <addForeignKeyConstraint baseColumnNames="food_id"
+                                 baseTableName="food_vitamin"
+                                 constraintName="fk_food_vitamin_food"
+                                 referencedColumnNames="food_id"
+                                 referencedTableName="food"/>
+
+        <addForeignKeyConstraint baseColumnNames="vitamin_id"
+                                 baseTableName="food_vitamin"
+                                 constraintName="fk_food_vitamin_vitamin"
+                                 referencedColumnNames="vitamin_id"
+                                 referencedTableName="vitamin"/>
+
+        <addForeignKeyConstraint baseColumnNames="meal_id"
+                                 baseTableName="meal_food"
+                                 constraintName="fk_meal_food_meal"
+                                 referencedColumnNames="meal_id"
+                                 referencedTableName="meal"/>
+
+        <addForeignKeyConstraint baseColumnNames="food_id"
+                                 baseTableName="meal_food"
+                                 constraintName="fk_meal_food_food"
+                                 referencedColumnNames="food_id"
+                                 referencedTableName="food"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="user_diet"
+                                 constraintName="fk_user_diet_user"
+                                 referencedColumnNames="user_id"
+                                 referencedTableName="user_entity"/>
+
+        <addForeignKeyConstraint baseColumnNames="diet_id"
+                                 baseTableName="user_diet"
+                                 constraintName="fk_user_diet_diet"
+                                 referencedColumnNames="diet_id"
+                                 referencedTableName="diet"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="user_daily_report"
+                                 constraintName="fk_user_daily_report_user"
+                                 referencedColumnNames="user_id"
+                                 referencedTableName="user_entity"/>
+
+        <addForeignKeyConstraint baseColumnNames="daily_report_id"
+                                 baseTableName="user_daily_report"
+                                 constraintName="fk_user_daily_report_daily_report"
+                                 referencedColumnNames="daily_report_id"
+                                 referencedTableName="daily_report"/>
     </changeSet>
 
 </databaseChangeLog>

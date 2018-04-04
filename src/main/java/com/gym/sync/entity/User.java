@@ -11,7 +11,7 @@ import java.util.Objects;
  * @author laurmuresan
  */
 @Entity
-@Table(name = "user")
+@Table(name = "user_entity")
 @SequenceGenerator(sequenceName = "user_seq", allocationSize = 1, name = "user_seq")
 public class User implements Serializable {
 
@@ -22,6 +22,7 @@ public class User implements Serializable {
     private String lastName;
     private String email;
     private String username;
+    private String password;
     private Gender gender;
     private LocalDate birthDate;
     private double height;
@@ -36,13 +37,14 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(long id, String firstName, String lastName, String email, String username, Gender gender,
-                LocalDate birthDate, double height, double weight, String phoneNumber, String address,
+    public User(long id, String firstName, String lastName, String email, String password, String username,
+                Gender gender, LocalDate birthDate, double height, double weight, String phoneNumber, String address,
                 Role role, Photo photo, Goal goal, List<Diet> dietList) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.password = password;
         this.username = username;
         this.gender = gender;
         this.birthDate = birthDate;
@@ -101,6 +103,15 @@ public class User implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Column(name = "password", nullable = false)
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Column(name = "gender", nullable = false)
@@ -206,6 +217,7 @@ public class User implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", gender=" + gender +
                 ", birthDate=" + birthDate +
                 ", height=" + height +
@@ -231,6 +243,7 @@ public class User implements Serializable {
                 Objects.equals(lastName, user.lastName) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(username, user.username) &&
+                Objects.equals(password, user.password) &&
                 gender == user.gender &&
                 Objects.equals(birthDate, user.birthDate) &&
                 Objects.equals(phoneNumber, user.phoneNumber) &&
@@ -244,6 +257,6 @@ public class User implements Serializable {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, firstName, lastName, email, username, gender, birthDate, height, weight, phoneNumber, address, role, photo, goal, dietList);
+        return Objects.hash(id, firstName, lastName, email, username, password, gender, birthDate, height, weight, phoneNumber, address, role, photo, goal, dietList);
     }
 }
