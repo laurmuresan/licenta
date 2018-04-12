@@ -25,12 +25,12 @@
 		    INSERT INTO company(company_id, name, location_id, phone, social_media_link, description)
 		    VALUES (3,'Test Company 3', 3, '1234567890','www.testcompany3.com','Test company 3.');
 
-            INSERT INTO event(event_id, name, date, location_id, phone, start_event, end_event)
-            VALUES (1, 'Test Event 1', '2018-01-10', 4, '0123456789', '11:00:00', '14:00:00');
-            INSERT INTO event(event_id, name, date, location_id, phone, start_event, end_event)
-            VALUES (2, 'Test Event 2', '2018-02-20', 5, '0123456789', '12:00:00', '14:00:00');
-            INSERT INTO event(event_id, name, date, location_id, phone, start_event, end_event)
-            VALUES (3, 'Test Event 3', '2018-03-30', 6, '0123456789', '13:00:00', '14:00:00');
+            INSERT INTO event(event_id, name, details, date, location_id, phone, start_event, end_event)
+            VALUES (1, 'Test Event 1', 'Test Event 1', '2018-01-10', 4, '0123456789', '11:00:00', '14:00:00');
+            INSERT INTO event(event_id, name, details, date, location_id, phone, start_event, end_event)
+            VALUES (2, 'Test Event 2', 'Test Event 1', '2018-02-20', 5, '0123456789', '12:00:00', '14:00:00');
+            INSERT INTO event(event_id, name, details, date, location_id, phone, start_event, end_event)
+            VALUES (3, 'Test Event 3', 'Test Event 1', '2018-03-30', 6, '0123456789', '13:00:00', '14:00:00');
 
             INSERT INTO gym(gym_id, name, location_id, website, details, phone, type, monday_friday_open, monday_friday_close, saturday_open, saturday_close, sunday_open, sunday_close, company_id)
             VALUES (1, 'Test gym 1', 7, 'www.testgym1.com', 'Test gym 1 details', '0123456789', 'AEROBIC', '08:00:00', '20:00:00', '10:00:00', '18:00:00', '10:00:00', '16:00:00', 1);

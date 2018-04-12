@@ -1,9 +1,8 @@
 package com.gym.sync.epo;
 
-import org.joda.time.LocalDate;
-import org.joda.time.LocalDateTime;
-
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**

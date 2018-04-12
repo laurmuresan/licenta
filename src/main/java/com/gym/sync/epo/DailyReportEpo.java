@@ -1,14 +1,15 @@
 package com.gym.sync.epo;
 
-import org.joda.time.LocalDate;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * @author laurmuresan
  */
 public class DailyReportEpo implements Serializable {
 
+    private static final long serialVersionUID = -5504238323957220719L;
     private long id;
     private LocalDate date;
     private double weight;
