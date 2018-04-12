@@ -5,6 +5,8 @@ import com.gym.sync.epo.EventEpo;
 import com.gym.sync.mapper.EventEpoMapper;
 import com.gym.sync.mapper.LocationEpoMapper;
 import com.gym.sync.repository.EventRepository;
+import com.gym.sync.service.interfaces.ICrudService;
+import com.gym.sync.service.interfaces.IEventService;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -5,6 +5,8 @@ import com.gym.sync.epo.CompanyEpo;
 import com.gym.sync.mapper.CompanyEpoMapper;
 import com.gym.sync.mapper.LocationEpoMapper;
 import com.gym.sync.repository.CompanyRepository;
+import com.gym.sync.service.interfaces.ICompanyService;
+import com.gym.sync.service.interfaces.ICrudService;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

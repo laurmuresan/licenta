@@ -1,4 +1,4 @@
-package com.gym.sync.service;
+package com.gym.sync.service.interfaces;
 
 import org.springframework.transaction.annotation.Transactional;
 

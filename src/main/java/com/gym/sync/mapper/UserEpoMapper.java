@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserEpoMapper extends GenericMapper<User, UserEpo> {
 
     @Autowired
-    private PhotoMapper photoEpoMapper;
+    private PhotoEpoMapper photoEpoMapper;
     @Autowired
     private RoleEpoMapper roleEpoMapper;
     @Autowired

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
  * @author laurmuresan
  */
 @Service
-public class PhotoMapper extends GenericMapper<Photo, PhotoEpo> {
+public class PhotoEpoMapper extends GenericMapper<Photo, PhotoEpo> {
 
     @Override
     public Photo toInternal(PhotoEpo epo) {
