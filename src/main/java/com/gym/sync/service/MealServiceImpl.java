@@ -6,7 +6,6 @@ import com.gym.sync.epo.MealEpo;
 import com.gym.sync.mapper.FoodEpoMapper;
 import com.gym.sync.mapper.MealEpoMapper;
 import com.gym.sync.repository.MealRepository;
-import com.gym.sync.service.interfaces.ICrudService;
 import com.gym.sync.service.interfaces.IMealService;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.slf4j.LoggerFactory;
@@ -21,7 +20,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class MealServiceImpl implements ICrudService<Meal, MealEpo>, IMealService {
+public class MealServiceImpl implements IMealService {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(MealServiceImpl.class);
 

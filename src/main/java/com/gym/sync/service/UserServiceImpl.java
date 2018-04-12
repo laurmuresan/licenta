@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class UserServiceImpl implements ICrudService<User, UserEpo>, IUserService {
+public class UserServiceImpl implements IUserService {
 
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);

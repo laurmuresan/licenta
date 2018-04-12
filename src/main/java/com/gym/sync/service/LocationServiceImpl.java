@@ -4,7 +4,6 @@ import com.gym.sync.entity.Location;
 import com.gym.sync.epo.LocationEpo;
 import com.gym.sync.mapper.LocationEpoMapper;
 import com.gym.sync.repository.LocationRepository;
-import com.gym.sync.service.interfaces.ICrudService;
 import com.gym.sync.service.interfaces.ILocationService;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.slf4j.LoggerFactory;
@@ -19,7 +18,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class LocationServiceImpl implements ICrudService<Location, LocationEpo>, ILocationService {
+public class LocationServiceImpl implements ILocationService {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(LocationServiceImpl.class);
 

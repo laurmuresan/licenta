@@ -5,7 +5,6 @@ import com.gym.sync.entity.RoleType;
 import com.gym.sync.epo.RoleEpo;
 import com.gym.sync.mapper.RoleEpoMapper;
 import com.gym.sync.repository.RoleRepository;
-import com.gym.sync.service.interfaces.ICrudService;
 import com.gym.sync.service.interfaces.IRoleService;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.slf4j.LoggerFactory;
@@ -20,7 +19,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class RoleServiceImpl implements ICrudService<Role, RoleEpo>, IRoleService {
+public class RoleServiceImpl implements IRoleService {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(RoleServiceImpl.class);
 

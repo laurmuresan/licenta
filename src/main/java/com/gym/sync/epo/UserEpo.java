@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 public class UserEpo implements Serializable {
 
-    private static final long serialVersionUID = -3590571318994602803L;
+    private static final long serialVersionUID = 4766570152191657103L;
 
     private long id;
     private String firstName;

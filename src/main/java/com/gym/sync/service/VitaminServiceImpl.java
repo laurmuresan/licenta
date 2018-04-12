@@ -4,7 +4,6 @@ import com.gym.sync.entity.Vitamin;
 import com.gym.sync.epo.VitaminEpo;
 import com.gym.sync.mapper.VitaminEpoMapper;
 import com.gym.sync.repository.VitaminRepository;
-import com.gym.sync.service.interfaces.ICrudService;
 import com.gym.sync.service.interfaces.IVitaminService;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.slf4j.LoggerFactory;
@@ -19,7 +18,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class VitaminServiceImpl implements ICrudService<Vitamin, VitaminEpo>, IVitaminService {
+public class VitaminServiceImpl implements IVitaminService {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(VitaminServiceImpl.class);
 

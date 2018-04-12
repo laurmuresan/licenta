@@ -6,7 +6,6 @@ import com.gym.sync.mapper.CompanyEpoMapper;
 import com.gym.sync.mapper.LocationEpoMapper;
 import com.gym.sync.repository.CompanyRepository;
 import com.gym.sync.service.interfaces.ICompanyService;
-import com.gym.sync.service.interfaces.ICrudService;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class CompanyServiceImpl implements ICrudService<Company, CompanyEpo>, ICompanyService {
+public class CompanyServiceImpl implements ICompanyService {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(CompanyServiceImpl.class);
 

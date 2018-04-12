@@ -1,9 +1,9 @@
 package com.gym.sync.entity;
 
-import org.joda.time.LocalDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**

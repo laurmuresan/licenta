@@ -15,7 +15,8 @@ import java.util.Objects;
 @SequenceGenerator(sequenceName = "user_seq", allocationSize = 1, name = "user_seq")
 public class User implements Serializable {
 
-    private static final long serialVersionUID = -4799064125572011553L;
+
+    private static final long serialVersionUID = -1844050987295246760L;
 
     private long id;
     private String firstName;
@@ -179,7 +180,8 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    @Column(name = "photo", nullable = false)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "photo_id")
     public Photo getPhoto() {
         return photo;
     }

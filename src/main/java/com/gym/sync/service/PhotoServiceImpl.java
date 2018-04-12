@@ -4,7 +4,6 @@ import com.gym.sync.entity.Photo;
 import com.gym.sync.epo.PhotoEpo;
 import com.gym.sync.mapper.PhotoEpoMapper;
 import com.gym.sync.repository.PhotoRepository;
-import com.gym.sync.service.interfaces.ICrudService;
 import com.gym.sync.service.interfaces.IPhotoService;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.slf4j.LoggerFactory;
@@ -19,7 +18,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class PhotoServiceImpl implements ICrudService<Photo, PhotoEpo>, IPhotoService {
+public class PhotoServiceImpl implements IPhotoService {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(PhotoServiceImpl.class);
 

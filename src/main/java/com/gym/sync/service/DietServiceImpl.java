@@ -6,7 +6,6 @@ import com.gym.sync.epo.DietEpo;
 import com.gym.sync.mapper.DietEpoMapper;
 import com.gym.sync.mapper.MealEpoMapper;
 import com.gym.sync.repository.DietRepository;
-import com.gym.sync.service.interfaces.ICrudService;
 import com.gym.sync.service.interfaces.IDietService;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.slf4j.LoggerFactory;
@@ -21,7 +20,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class DietServiceImpl implements ICrudService<Diet, DietEpo>, IDietService {
+public class DietServiceImpl implements IDietService {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(DietServiceImpl.class);
 

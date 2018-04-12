@@ -5,7 +5,6 @@ import com.gym.sync.epo.EventEpo;
 import com.gym.sync.mapper.EventEpoMapper;
 import com.gym.sync.mapper.LocationEpoMapper;
 import com.gym.sync.repository.EventRepository;
-import com.gym.sync.service.interfaces.ICrudService;
 import com.gym.sync.service.interfaces.IEventService;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.slf4j.LoggerFactory;
@@ -20,7 +19,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class EventServiceImpl implements ICrudService<Event, EventEpo>, IEventService {
+public class EventServiceImpl implements IEventService {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(EventServiceImpl.class);
 

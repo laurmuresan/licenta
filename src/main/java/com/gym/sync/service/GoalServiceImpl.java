@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class GoalServiceImpl implements ICrudService<Goal, GoalEpo>, IGoalService {
+public class GoalServiceImpl implements IGoalService {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(GoalServiceImpl.class);
 
